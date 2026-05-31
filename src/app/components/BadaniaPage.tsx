@@ -484,7 +484,7 @@ function HashimotoContent() {
   );
 }
 
-export function ThyroidPage() {
+export function BadaniaPage() {
   const [activeSubTab, setActiveSubTab] = useState<ThyroidTab>("niedoczynnosc");
 
   return (

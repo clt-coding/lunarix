@@ -1,66 +1,93 @@
-import { Info, Pill, Activity, Apple } from "lucide-react";
+import { AlertCircle, Stethoscope, Pill, Info } from "lucide-react";
 
 const symptoms = [
-  "Nieregularne lub rzadkie miesiączki (oligomenorrhoea)",
-  "Nadmierne owłosienie – twarz, klatka piersiowa, plecy (hirsutyzm)",
-  "Trądzik i przetłuszczanie się skóry",
-  "Łysienie androgenowe (wypadanie włosów na głowie)",
-  "Trudności z zajściem w ciążę (anovulacja)",
-  "Przyrost masy ciała, szczególnie w okolicy brzucha",
-  "Insulinooporność i ryzyko cukrzycy typu 2",
-  "Ciemnienie skóry w fałdach (acanthosis nigricans)",
+  "Silny ból podczas menstruacji (dysmenorrhoea)",
+  "Ból podczas stosunku płciowego (dyspareunia)",
+  "Ból podczas wypróżniania lub oddawania moczu",
+  "Obfite lub nieregularne krwawienia miesięczne",
+  "Trudności z zajściem w ciążę",
+  "Przewlekły ból miednicy przez cały cykl",
+  "Nasilone zmęczenie i wyczerpanie",
+  "Wzdęcia i nudności, szczególnie podczas menstruacji",
 ];
 
-const diagnostics = [
+const stages = [
   {
-    name: "Badania hormonalne",
-    desc: "LH, FSH, testosteron, prolaktyna, DHEA-S, insulina na czczo, HOMA-IR.",
+    stage: "I",
+    name: "Minimalna",
+    desc: "Nieliczne izolowane ogniska bez istotnych zrostów.",
   },
   {
-    name: "USG jajników",
-    desc: "Ocena liczby i wielkości pęcherzyków antralnych (≥20 lub ≥10 ml objętości jajnika).",
+    stage: "II",
+    name: "Łagodna",
+    desc: "Więcej ognisk, płytkie zrosty, brak dużych torbieli.",
   },
   {
-    name: "Profil metaboliczny",
-    desc: "Glukoza na czczo, HbA1c, lipidogram – ocena insulinooporności.",
+    stage: "III",
+    name: "Umiarkowana",
+    desc: "Liczne ogniska, zrosty, małe torbiele jajnikowe.",
   },
   {
-    name: "Kryterium Rotterdamskie",
-    desc: "Diagnoza PCOS wymaga spełnienia 2 z 3 kryteriów: hiperandrogenizm, oligoowulacja, torbiele.",
+    stage: "IV",
+    name: "Ciężka",
+    desc: "Głęboko naciekające zmiany, duże torbiele (endometriomy).",
   },
 ];
 
-const lifestyleTips = [
-  { icon: "🥦", tip: "Dieta niskoglikemiczna", desc: "Ograniczenie cukrów prostych i przetworzonej żywności poprawia insulinowrażliwość." },
-  { icon: "🏃‍♀️", tip: "Aktywność fizyczna", desc: "30 min umiarkowanego wysiłku 5× w tygodniu reguluje poziom insuliny i androgenów." },
-  { icon: "😴", tip: "Regularne godziny snu", desc: "Niedobór snu pogarsza insulinooporność i dysbalans hormonalny." },
-  { icon: "🧘‍♀️", tip: "Zarządzanie stresem", desc: "Kortyzol nasila zaburzenia hormonalne – medytacja i joga mają udowodniony efekt." },
+const treatments = [
+  {
+    type: "Leczenie bólu",
+    items: ["NLPZ (ibuprofen, naproksen)", "Paracetamol", "Leki rozkurczowe"],
+    icon: Pill,
+    color: "#c17de0",
+  },
+  {
+    type: "Leczenie hormonalne",
+    items: [
+      "Antykoncepcja hormonalna (tabletki, wkładka)",
+      "Progestyny – dienogest",
+      "Agoniści GnRH",
+      "Danazol",
+    ],
+    icon: AlertCircle,
+    color: "#8cb8f0",
+  },
+  {
+    type: "Leczenie chirurgiczne",
+    items: [
+      "Laparoskopia – usunięcie ognisk",
+      "Drenaż torbieli endometrialnych",
+      "Hysterektomia (w skrajnych przypadkach)",
+    ],
+    icon: Stethoscope,
+    color: "#80d9b4",
+  },
 ];
 
-export function PCOSPage() {
+export function OnasPage() {
   return (
     <div style={{ paddingTop: "80px", minHeight: "100vh" }}>
       {/* Page header */}
       <section
         className="relative px-6 py-20 overflow-hidden"
-        style={{ background: "rgba(140,184,240,0.1)" }}
+        style={{ background: "rgba(193,125,224,0.12)" }}
       >
         <div
           className="absolute -top-10 right-0 w-80 h-80 rounded-full blur-3xl pointer-events-none"
-          style={{ background: "#8cb8f0", opacity: 0.12 }}
+          style={{ background: "#c17de0", opacity: 0.15 }}
         />
         <div className="max-w-4xl mx-auto relative z-10">
           <div
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm mb-6"
             style={{
-              background: "rgba(140,184,240,0.18)",
-              color: "#8cb8f0",
+              background: "rgba(193,125,224,0.2)",
+              color: "#c17de0",
               fontFamily: "'Nunito', sans-serif",
               fontWeight: 600,
-              border: "1px solid rgba(140,184,240,0.3)",
+              border: "1px solid rgba(193,125,224,0.3)",
             }}
           >
-            ♀ Zaburzenia hormonalne
+            ♀ Choroby ginekologiczne
           </div>
           <h1
             style={{
@@ -68,41 +95,30 @@ export function PCOSPage() {
               fontSize: "clamp(2rem, 5vw, 3.5rem)",
               color: "#ffffff",
               fontWeight: 700,
-              marginBottom: "0.5rem",
+              marginBottom: "1rem",
               lineHeight: 1.15,
             }}
           >
-            PCOS
+            Endometrioza
           </h1>
-          <p
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: "1.2rem",
-              color: "rgba(223,217,255,0.6)",
-              fontStyle: "italic",
-              marginBottom: "1rem",
-            }}
-          >
-            Zespół policystycznych jajników
-          </p>
           <p
             style={{
               fontFamily: "'Nunito', sans-serif",
               color: "rgba(223,217,255,0.75)",
-              fontSize: "1.05rem",
+              fontSize: "1.1rem",
               lineHeight: 1.7,
               maxWidth: "600px",
             }}
           >
-            Najczęstsze zaburzenie hormonalne u kobiet w wieku rozrodczym,
-            dotykające od 5 do 15% populacji. PCOS wpływa nie tylko na
-            płodność, ale też na metabolizm, wygląd i dobrostan psychiczny.
+            Jedna z najczęściej diagnozowanych, a jednocześnie najtrudniejszych
+            do wykrycia chorób ginekologicznych. Średni czas do diagnozy wynosi
+            7–10 lat.
           </p>
         </div>
       </section>
 
       <div className="max-w-4xl mx-auto px-6 py-16 space-y-16">
-        {/* What is PCOS */}
+        {/* What is it */}
         <section>
           <h2
             style={{
@@ -112,7 +128,7 @@ export function PCOSPage() {
               marginBottom: "1rem",
             }}
           >
-            Czym jest PCOS?
+            Czym jest endometrioza?
           </h2>
           <p
             style={{
@@ -120,16 +136,17 @@ export function PCOSPage() {
               color: "rgba(223,217,255,0.75)",
               lineHeight: 1.8,
               fontSize: "1.05rem",
-              marginBottom: "1rem",
             }}
           >
-            PCOS to złożone zaburzenie endokrynologiczne, charakteryzujące się
-            nadmiarem androgenów (hormonów „męskich"), zaburzonymi cyklami
-            owulacyjnymi i często – obecnością licznych pęcherzyków antralnych
-            w jajnikach (stąd nazwa „policystyczne"). Choroba ma podłoże
-            genetyczne i środowiskowe.
+            Endometrioza to choroba, w której tkanka podobna do błony śluzowej
+            macicy (endometrium) rośnie poza macicą – najczęściej na jajnikach,
+            jajowodach, jelitach, pęcherzu lub otrzewnej. Podczas każdej
+            menstruacji tkanka ta reaguje na hormony tak samo jak normalne
+            endometrium – krwawi, ale krew nie ma gdzie odpłynąć. Prowadzi to
+            do stanów zapalnych, zrostów i torbieli (endometriomów).
           </p>
           <p
+            className="mt-4"
             style={{
               fontFamily: "'Nunito', sans-serif",
               color: "rgba(223,217,255,0.75)",
@@ -137,10 +154,10 @@ export function PCOSPage() {
               fontSize: "1.05rem",
             }}
           >
-            Insulinooporność – obecna u 50–70% kobiet z PCOS – jest kluczowym
-            mechanizmem napędowym choroby. Wysoki poziom insuliny stymuluje
-            jajniki do nadprodukcji androgenów, co z kolei hamuje owulację
-            i nasila objawy kliniczne.
+            Choroba dotyka ok. 10–15% kobiet w wieku rozrodczym i jest jedną
+            z głównych przyczyn niepłodności. Endometrioza jest chorobą
+            przewlekłą – nie ma na nią lekarstwa, ale odpowiednie leczenie
+            pozwala skutecznie kontrolować objawy.
           </p>
         </section>
 
@@ -162,11 +179,11 @@ export function PCOSPage() {
                 key={symptom}
                 className="flex items-start gap-3 rounded-xl px-4 py-3"
                 style={{
-                  background: "rgba(140,184,240,0.1)",
-                  border: "1px solid rgba(140,184,240,0.2)",
+                  background: "rgba(193,125,224,0.1)",
+                  border: "1px solid rgba(193,125,224,0.2)",
                 }}
               >
-                <span style={{ color: "#8cb8f0", marginTop: "2px", flexShrink: 0 }}>
+                <span style={{ color: "#c17de0", marginTop: "2px", flexShrink: 0 }}>
                   ✦
                 </span>
                 <span
@@ -182,9 +199,32 @@ export function PCOSPage() {
               </div>
             ))}
           </div>
+
+          <div
+            className="flex items-start gap-3 rounded-xl p-4 mt-4"
+            style={{
+              background: "rgba(255,200,100,0.08)",
+              border: "1px solid rgba(255,200,100,0.2)",
+            }}
+          >
+            <Info className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: "#f0c87d" }} />
+            <p
+              style={{
+                fontFamily: "'Nunito', sans-serif",
+                color: "rgba(223,217,255,0.7)",
+                fontSize: "0.9rem",
+                lineHeight: 1.6,
+              }}
+            >
+              <strong style={{ color: "#f0c87d" }}>Ważne:</strong> Nasilenie
+              objawów nie zawsze odpowiada zaawansowaniu choroby – niektóre
+              kobiety z endometriozą IV stopnia mogą odczuwać minimalne
+              dolegliwości, a inne z I stopniem – znaczny ból.
+            </p>
+          </div>
         </section>
 
-        {/* Phenotypes */}
+        {/* Stages */}
         <section>
           <h2
             style={{
@@ -194,27 +234,22 @@ export function PCOSPage() {
               marginBottom: "1.5rem",
             }}
           >
-            Cztery fenotypy PCOS
+            Stopnie zaawansowania
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              { f: "A", name: "Klasyczny z HA", desc: "Hiperandrogenizm + oligoowulacja + torbiele na USG (najcięższy)" },
-              { f: "B", name: "Klasyczny bez torbieli", desc: "Hiperandrogenizm + oligoowulacja, bez torbieli na USG" },
-              { f: "C", name: "Owulacyjny z HA", desc: "Hiperandrogenizm + torbiele, regularne owulacje" },
-              { f: "D", name: "Bez hiperandrogenizmu", desc: "Oligoowulacja + torbiele, bez nadmiaru androgenów (najłagodniejszy)" },
-            ].map(({ f, name, desc }) => (
+            {stages.map(({ stage, name, desc }) => (
               <div
-                key={f}
+                key={stage}
                 className="rounded-2xl p-5"
                 style={{
                   background: "rgba(255,255,255,0.06)",
-                  border: "1px solid rgba(140,184,240,0.2)",
+                  border: "1px solid rgba(223,217,255,0.1)",
                 }}
               >
                 <div className="flex items-center gap-3 mb-2">
                   <div
                     className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ background: "#8cb8f0", color: "#1a1040" }}
+                    style={{ background: "#c17de0", color: "#ffffff" }}
                   >
                     <span
                       style={{
@@ -223,7 +258,7 @@ export function PCOSPage() {
                         fontSize: "0.9rem",
                       }}
                     >
-                      {f}
+                      {stage}
                     </span>
                   </div>
                   <span
@@ -231,7 +266,7 @@ export function PCOSPage() {
                       fontFamily: "'Playfair Display', serif",
                       color: "#ffffff",
                       fontWeight: 600,
-                      fontSize: "1rem",
+                      fontSize: "1.1rem",
                     }}
                   >
                     {name}
@@ -240,9 +275,9 @@ export function PCOSPage() {
                 <p
                   style={{
                     fontFamily: "'Nunito', sans-serif",
-                    color: "rgba(223,217,255,0.6)",
+                    color: "rgba(223,217,255,0.65)",
                     fontSize: "0.9rem",
-                    lineHeight: 1.5,
+                    lineHeight: 1.6,
                     paddingLeft: "2.75rem",
                   }}
                 >
@@ -253,20 +288,38 @@ export function PCOSPage() {
           </div>
         </section>
 
-        {/* Diagnostics */}
+        {/* Diagnosis */}
         <section>
           <h2
             style={{
               fontFamily: "'Playfair Display', serif",
               fontSize: "1.9rem",
               color: "#ffffff",
-              marginBottom: "1.5rem",
+              marginBottom: "1rem",
             }}
           >
             Diagnostyka
           </h2>
+          <p
+            style={{
+              fontFamily: "'Nunito', sans-serif",
+              color: "rgba(223,217,255,0.75)",
+              lineHeight: 1.8,
+              fontSize: "1.05rem",
+              marginBottom: "1rem",
+            }}
+          >
+            Złotym standardem diagnostycznym jest laparoskopia – minimalno
+            inwazyjna operacja, podczas której lekarz może bezpośrednio
+            zobaczyć i pobrać wycinki zmian. Inne metody diagnostyczne:
+          </p>
           <div className="space-y-3">
-            {diagnostics.map(({ name, desc }) => (
+            {[
+              { name: "Ultrasonografia (USG)", desc: "Wykrywa torbiele jajnikowe i głęboko infiltrującą endometriozę jelitową." },
+              { name: "MRI (rezonans magnetyczny)", desc: "Szczegółowe mapowanie zmian przed planowaną operacją." },
+              { name: "Badania krwi – CA-125", desc: "Marker pomocniczy, nie jest swoisty dla endometriozy." },
+              { name: "Laparoskopia diagnostyczna", desc: "Jedyna metoda pozwalająca potwierdzić rozpoznanie histologicznie." },
+            ].map(({ name, desc }) => (
               <div
                 key={name}
                 className="flex items-start gap-4 rounded-xl p-4"
@@ -277,7 +330,7 @@ export function PCOSPage() {
               >
                 <div
                   className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
-                  style={{ background: "#8cb8f0" }}
+                  style={{ background: "#c17de0" }}
                 />
                 <div>
                   <div
@@ -319,41 +372,7 @@ export function PCOSPage() {
             Metody leczenia
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {[
-              {
-                icon: Activity,
-                type: "Styl życia",
-                color: "#80d9b4",
-                items: [
-                  "Dieta niskoglikemiczna",
-                  "Regularna aktywność fizyczna",
-                  "Redukcja masy ciała (5–10% poprawia owulację)",
-                  "Ograniczenie stresu",
-                ],
-              },
-              {
-                icon: Pill,
-                type: "Leczenie farmakologiczne",
-                color: "#8cb8f0",
-                items: [
-                  "Metformina – redukcja insulinooporności",
-                  "Antykoncepcja hormonalna – regulacja cyklu",
-                  "Anty-androgeny (spironolakton)",
-                  "Letrozol / klomifen – indukcja owulacji",
-                ],
-              },
-              {
-                icon: Apple,
-                type: "Leczenie niepłodności",
-                color: "#c17de0",
-                items: [
-                  "Letrozol (pierwsza linia)",
-                  "Klomifen cytrynian",
-                  "Gonadotropiny",
-                  "In vitro (IVF) – przy braku odpowiedzi",
-                ],
-              },
-            ].map(({ type, items, icon: Icon, color }) => (
+            {treatments.map(({ type, items, icon: Icon, color }) => (
               <div
                 key={type}
                 className="rounded-2xl p-6"
@@ -400,57 +419,6 @@ export function PCOSPage() {
           </div>
         </section>
 
-        {/* Lifestyle */}
-        <section>
-          <h2
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: "1.9rem",
-              color: "#ffffff",
-              marginBottom: "1.5rem",
-            }}
-          >
-            Styl życia z PCOS
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {lifestyleTips.map(({ icon, tip, desc }) => (
-              <div
-                key={tip}
-                className="rounded-2xl p-5 flex items-start gap-4"
-                style={{
-                  background: "rgba(255,255,255,0.06)",
-                  border: "1px solid rgba(223,217,255,0.1)",
-                }}
-              >
-                <span className="text-2xl flex-shrink-0">{icon}</span>
-                <div>
-                  <div
-                    style={{
-                      fontFamily: "'Nunito', sans-serif",
-                      color: "#DFD9FF",
-                      fontWeight: 700,
-                      fontSize: "0.95rem",
-                      marginBottom: "0.25rem",
-                    }}
-                  >
-                    {tip}
-                  </div>
-                  <div
-                    style={{
-                      fontFamily: "'Nunito', sans-serif",
-                      color: "rgba(223,217,255,0.6)",
-                      fontSize: "0.9rem",
-                      lineHeight: 1.5,
-                    }}
-                  >
-                    {desc}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* Disclaimer */}
         <div
           className="rounded-2xl p-6 flex items-start gap-4"
@@ -469,9 +437,9 @@ export function PCOSPage() {
             }}
           >
             <strong style={{ color: "#DFD9FF" }}>Informacja edukacyjna.</strong>{" "}
-            Treści zawarte na tej stronie mają wyłącznie charakter informacyjny
-            i nie zastępują porady medycznej. W przypadku objawów zawsze
-            skonsultuj się z lekarzem endokrynologiem lub ginekologiem.
+            Treści zawarte na tej stronie mają wyłącznie charakter
+            informacyjny i nie zastępują porady medycznej. W przypadku
+            objawów zawsze skonsultuj się z lekarzem ginekologiem.
           </p>
         </div>
       </div>

@@ -9,9 +9,10 @@ interface NavProps {
 
 const tabs: { id: Tab; label: string }[] = [
   { id: "home", label: "Strona główna" },
-  { id: "endometrioza", label: "Endometrioza" },
-  { id: "pcos", label: "PCOS" },
-  { id: "tarczyca", label: "Tarczyca" },
+  { id: "o-nas", label: "O nas" },
+  { id: "choroby", label: "Choroby" },
+  { id: "profilaktyka", label: "Profilaktyka" },
+  { id: "badania", label: "Badania" },
   { id: "aplikacja", label: "Aplikacja" },
 ];
 

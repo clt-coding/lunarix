@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Nav } from "./components/Nav";
 import { HomePage } from "./components/HomePage";
-import { EndometriosisPage } from "./components/EndometriosisPage";
-import { PCOSPage } from "./components/PCOSPage";
-import { ThyroidPage } from "./components/ThyroidPage";
+import { OnasPage } from "./components/OnasPage";
+import { ChorobyPage } from "./components/ChorobyPage";
+import { ProfilaktykaPage } from "./components/ProfilaktykaPage";
 import { AppPage } from "./components/AppPage";
+import { BadaniaPage } from "./components/BadaniaPage";
 
-export type Tab = "home" | "endometrioza" | "pcos" | "tarczyca" | "aplikacja";
+export type Tab = "home" | "o-nas" | "choroby" | "profilaktyka" | "badania" | "aplikacja";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<Tab>("home");
@@ -31,9 +32,10 @@ export default function App() {
         {activeTab === "home" && (
           <HomePage onTabChange={handleTabChange} />
         )}
-        {activeTab === "endometrioza" && <EndometriosisPage />}
-        {activeTab === "pcos" && <PCOSPage />}
-        {activeTab === "tarczyca" && <ThyroidPage />}
+        {activeTab === "o-nas" && <OnasPage />}
+        {activeTab === "choroby" && <ChorobyPage />}
+        {activeTab === "profilaktyka" && <ProfilaktykaPage />}
+        {activeTab === "badania" && <BadaniaPage />}
         {activeTab === "aplikacja" && <AppPage />}
       </main>
 
@@ -65,7 +67,7 @@ export default function App() {
             fontFamily: "'Nunito', sans-serif",
           }}
         >
-          © 2026 Lunarix. Treści mają charakter wyłącznie informacyjny – nie
+          © 2026 Lunarix. Made with love by clt_coding ♥. Treści mają charakter wyłącznie informacyjny – nie
           zastępują porady medycznej.
         </p>
       </footer>

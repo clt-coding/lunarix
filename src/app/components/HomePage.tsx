@@ -54,19 +54,7 @@ export function HomePage({ onTabChange }: HomePageProps) {
         />
 
         <div className="relative z-10 text-center max-w-4xl mx-auto">
-          <div
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full mb-10"
-            style={{
-              background: "rgba(223,217,255,0.1)",
-              border: "1px solid rgba(223,217,255,0.2)",
-              color: "#DFD9FF",
-              fontFamily: "'Nunito', sans-serif",
-              fontSize: "0.9rem",
-            }}
-          >
-            <span>🌙</span>
-            <span>Twoje zdrowie pod kontrolą</span>
-          </div>
+
 
           <h1
             style={{
