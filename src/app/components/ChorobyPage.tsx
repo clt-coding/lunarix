@@ -1,479 +1,187 @@
-import { Info, Pill, Activity, Apple } from "lucide-react";
+import { useState } from "react";
+import { ShieldAlert } from "lucide-react";
 
-const symptoms = [
-  "Nieregularne lub rzadkie miesiączki (oligomenorrhoea)",
-  "Nadmierne owłosienie – twarz, klatka piersiowa, plecy (hirsutyzm)",
-  "Trądzik i przetłuszczanie się skóry",
-  "Łysienie androgenowe (wypadanie włosów na głowie)",
-  "Trudności z zajściem w ciążę (anovulacja)",
-  "Przyrost masy ciała, szczególnie w okolicy brzucha",
-  "Insulinooporność i ryzyko cukrzycy typu 2",
-  "Ciemnienie skóry w fałdach (acanthosis nigricans)",
-];
-
-const diagnostics = [
-  {
-    name: "Badania hormonalne",
-    desc: "LH, FSH, testosteron, prolaktyna, DHEA-S, insulina na czczo, HOMA-IR.",
+const diseasesData = {
+  pcos: {
+    title: "PCOS (Zespół Policystycznych Jajników)",
+    tag: "Zaburzenia owulacji i metabolizmu",
+    desc: "Najczęstsze zaburzenie endokrynologiczne u kobiet w wieku rozrodczym. Głównym motorem choroby jest insulinooporność (u 50–70% pacjentek). Wysoki poziom insuliny stymuluje jajniki do nadprodukcji androgenów (męskich hormonów), co blokuje owulację, niszczy cerę i rozregulowuje cykl.",
+    symptoms: [
+      "Nieregularne lub rzadkie miesiączki (oligomenorrhoea) albo ich całkowity brak",
+      "Hirsutyzm – nadmierne owłosienie na twarzy, klatce piersiowej i brzuchu",
+      "Trądzik o podłożu hormonalnym oraz silne przetłuszczanie się skóry",
+      "Łysienie androgenowe (przerzedzenie włosów na koronie głowy)",
+      "Przyrost masy ciała, szczególnie w rzucie brzusznym (trzewnym)",
+      "Acanthosis nigricans – ciemnienie skóry w fałdach (kark, pachy) jako objaw insulinooporności"
+    ]
   },
-  {
-    name: "USG jajników",
-    desc: "Ocena liczby i wielkości pęcherzyków antralnych (≥20 lub ≥10 ml objętości jajnika).",
+  endometrioza: {
+    title: "Endometrioza",
+    tag: "Przewlekły systemowy stan zapalny",
+    desc: "Choroba polegająca na obecności komórek błony śluzowej macicy (endometrium) poza jej naturalnym położeniem – najczęściej na jajnikach, otrzewnej, jelitach czy pęcherzu moczowym. Tkanka ta reaguje na cykl hormonalny, krwawi wewnętrznie, wywołując guzy, zrosty i potężny ból przewlekły.",
+    symptoms: [
+      "Dysmenorrhea – potworny, paraliżujący ból podbrzusza i krzyża podczas miesiączki",
+      "Dyspareunia – głęboki ból w trakcie lub bezpośrednio po stosunku seksualnym",
+      "Dyschezja i dysuria – ból przy wypróżnianiu lub oddawaniu moczu, nasilający się w trakcie okresu",
+      "Przewlekły ból miednicy mniejszej, trwający niezależnie od fazy cyklu",
+      "Tzw. Endo-belly – bolesne, nagłe wzdęcia brzucha przypominające ciążę, połączone z problemami jelitowymi",
+      "Przewlekłe, obezwładniające zmęczenie wywołane ciągłą walką układu odpornościowego ze stanem zapalnym"
+    ]
   },
-  {
-    name: "Profil metaboliczny",
-    desc: "Glukoza na czczo, HbA1c, lipidogram – ocena insulinooporności.",
-  },
-  {
-    name: "Kryterium Rotterdamskie",
-    desc: "Diagnoza PCOS wymaga spełnienia 2 z 3 kryteriów: hiperandrogenizm, oligoowulacja, torbiele.",
-  },
-];
-
-const lifestyleTips = [
-  { icon: "🥦", tip: "Dieta niskoglikemiczna", desc: "Ograniczenie cukrów prostych i przetworzonej żywności poprawia insulinowrażliwość." },
-  { icon: "🏃‍♀️", tip: "Aktywność fizyczna", desc: "30 min umiarkowanego wysiłku 5× w tygodniu reguluje poziom insuliny i androgenów." },
-  { icon: "😴", tip: "Regularne godziny snu", desc: "Niedobór snu pogarsza insulinooporność i dysbalans hormonalny." },
-  { icon: "🧘‍♀️", tip: "Zarządzanie stresem", desc: "Kortyzol nasila zaburzenia hormonalne – medytacja i joga mają udowodniony efekt." },
-];
+  tarczyca: {
+    niedoczynnosc: {
+      title: "Niedoczynność Tarczycy",
+      tag: "Spowolnienie metabolizmu komórkowego",
+      desc: "Stan, w którym gruczoł tarczowy produkuje zbyt mało hormonów (tyroksyny T4 i trójjodotyroniny T3) w stosunku do zapotrzebowania organizmu. Skutkuje to 'zwolnieniem obrotów' wszystkich układów, w tym spowolnieniem pracy serca (bradykardia) i obniżeniem temperatury ciała.",
+      symptoms: [
+        "Permanentne zmęczenie, senność w ciągu dnia i ogólne osłabienie",
+        "Niewyjaśniony przyrost masy ciała i ogromne trudności z jej redukcją",
+        "Nietolerancja zimna – stałe uczucie chłodu, wiecznie zimne dłonie i stopy",
+        "Skrajnie sucha, szorstka skóra (szczególnie na łokciach i kolanach) oraz łamliwe włosy",
+        "Zaparcia, wzdęcia i spowolniona perystaltyka jelit",
+        "Zaburzenia pamięci, koncentracji, tzw. mgła mózgowa i stany obniżonego nastroju"
+      ]
+    },
+    nadczynnosc: {
+      title: "Nadczynność Tarczycy",
+      tag: "Hipermetabolizm i nadaktywność organów",
+      desc: "Stan patologiczny wynikający z nadprodukcji hormonów tarczycy. Wprowadza organizm w stan stałego przyspieszenia – serce bije nienaturalnie szybko (tachykardia, wysokie tętno spoczynkowe w nocy), a metabolizm spala zasoby energetyczne w ekstremalnym tempie.",
+      symptoms: [
+        "Gwałtowny spadek masy ciała pomimo stałego, a nawet zwiększonego apetytu",
+        "Kołatanie serca, tachykardia, uczucie niepokoju w klatce piersiowej",
+        "Nietolerancja wysokich temperatur, uderzenia gorąca i nadmierna potliwość",
+        "Wewnętrzny niepokój, bezsenność, skrajna drażliwość i nerwowość",
+        "Widoczne, drobne drżenie rąk i osłabienie siły mięśniowej",
+        "Przyspieszona praca jelit, częste wypróżnienia lub biegunki"
+      ]
+    },
+    hashimoto: {
+      title: "Choroba Hashimoto",
+      tag: "Przewlekłe autoimmunologiczne zapalenie tarczycy",
+      desc: "Choroba o podłożu układu odpornościowego, w której własne przeciwciała powoli niszczą tkankę tarczycy, prowadząc z czasem do jej włóknienia i trwałej niedoczynności. Stan zapalny ma charakter destrukcyjny i przewlekły.",
+      symptoms: [
+        "Przewlekłe zmęczenie, stany depresyjne i apatia",
+        "Silne wahania nastroju i stany lękowe (związane z okresowymi rzutami hormonów)",
+        "Mgła mózgowa, drastyczny spadek koncentracji i zdolności zapamiętywania",
+        "Wędrujące bóle mięśniowe i bolesność stawów o nieznanej przyczynie",
+        "Zaburzenia owulacji, nieregularne cykle i trudności z donoszeniem ciąży"
+      ]
+    }
+  }
+};
 
 export function ChorobyPage() {
+  const [activeTab, setActiveTab] = useState<"pcos" | "endometrioza" | "tarczyca">("pcos");
+  const [thyroidSubtype, setThyroidSubtype] = useState<"niedoczynnosc" | "nadczynnosc" | "hashimoto">("niedoczynnosc");
+
+  const getCurrentData = () => {
+    if (activeTab !== "tarczyca") {
+      return diseasesData[activeTab];
+    }
+    return diseasesData.tarczyca[thyroidSubtype];
+  };
+
+  const data = getCurrentData();
+
   return (
-    <div style={{ paddingTop: "80px", minHeight: "100vh" }}>
-      {/* Page header */}
-      <section
-        className="relative px-6 py-20 overflow-hidden"
-        style={{ background: "rgba(140,184,240,0.1)" }}
-      >
-        <div
-          className="absolute -top-10 right-0 w-80 h-80 rounded-full blur-3xl pointer-events-none"
-          style={{ background: "#8cb8f0", opacity: 0.12 }}
-        />
-        <div className="max-w-4xl mx-auto relative z-10">
-          <div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm mb-6"
-            style={{
-              background: "rgba(140,184,240,0.18)",
-              color: "#8cb8f0",
-              fontFamily: "'Nunito', sans-serif",
-              fontWeight: 600,
-              border: "1px solid rgba(140,184,240,0.3)",
-            }}
-          >
-            ♀ Zaburzenia hormonalne
-          </div>
-          <h1
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: "clamp(2rem, 5vw, 3.5rem)",
-              color: "#ffffff",
-              fontWeight: 700,
-              marginBottom: "0.5rem",
-              lineHeight: 1.15,
-            }}
-          >
-            PCOS
-          </h1>
-          <p
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: "1.2rem",
-              color: "rgba(223,217,255,0.6)",
-              fontStyle: "italic",
-              marginBottom: "1rem",
-            }}
-          >
-            Zespół policystycznych jajników
-          </p>
-          <p
-            style={{
-              fontFamily: "'Nunito', sans-serif",
-              color: "rgba(223,217,255,0.75)",
-              fontSize: "1.05rem",
-              lineHeight: 1.7,
-              maxWidth: "600px",
-            }}
-          >
-            Najczęstsze zaburzenie hormonalne u kobiet w wieku rozrodczym,
-            dotykające od 5 do 15% populacji. PCOS wpływa nie tylko na
-            płodność, ale też na metabolizm, wygląd i dobrostan psychiczny.
-          </p>
+    <div style={{ paddingTop: "60px", minHeight: "100vh", background: "#4a3780", color: "#ffffff" }}>
+      
+      {/* --- MENU WYBORU CHOROBY (image_9801be.png) --- */}
+      <section className="max-w-4xl mx-auto px-6 mt-8">
+        <div 
+          className="rounded-3xl p-2 flex flex-wrap gap-1"
+          style={{ background: "rgba(255, 255, 255, 0.08)", border: "1px solid rgba(255, 255, 255, 0.12)" }}
+        >
+          {[
+            { id: "pcos", label: "PCOS" },
+            { id: "endometrioza", label: "Endometrioza" },
+            { id: "tarczyca", label: "Choroby Tarczycy" },
+          ].map((tab) => {
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id as any)}
+                className="flex-1 min-w-[140px] text-center px-6 py-3.5 rounded-2xl text-sm font-semibold transition-all duration-300"
+                style={{
+                  background: isActive ? "#ffffff" : "transparent",
+                  color: isActive ? "#4a3780" : "rgba(255, 255, 255, 0.8)",
+                }}
+              >
+                {tab.label}
+              </button>
+            );
+          })}
         </div>
       </section>
 
-      <div className="max-w-4xl mx-auto px-6 py-16 space-y-16">
-        {/* What is PCOS */}
-        <section>
-          <h2
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: "1.9rem",
-              color: "#ffffff",
-              marginBottom: "1rem",
-            }}
-          >
-            Czym jest PCOS?
-          </h2>
-          <p
-            style={{
-              fontFamily: "'Nunito', sans-serif",
-              color: "rgba(223,217,255,0.75)",
-              lineHeight: 1.8,
-              fontSize: "1.05rem",
-              marginBottom: "1rem",
-            }}
-          >
-            PCOS to złożone zaburzenie endokrynologiczne, charakteryzujące się
-            nadmiarem androgenów (hormonów „męskich"), zaburzonymi cyklami
-            owulacyjnymi i często – obecnością licznych pęcherzyków antralnych
-            w jajnikach (stąd nazwa „policystyczne"). Choroba ma podłoże
-            genetyczne i środowiskowe.
+      {/* --- NAGŁÓWEK / KARTA OPISOWA --- */}
+      <section className="max-w-4xl mx-auto px-6 pt-12">
+        <div className="relative p-8 rounded-3xl overflow-hidden border border-[rgba(255,255,255,0.15)] bg-[rgba(255,255,255,0.06)]">
+          <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full blur-3xl pointer-events-none" style={{ background: "#ffffff", opacity: 0.1 }} />
+          
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-4" style={{ background: "rgba(255,255,255,0.15)", color: "#ffffff", border: "1px solid rgba(255,255,255,0.2)" }}>
+            {data.tag}
+          </div>
+          
+          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2rem, 4vw, 2.6rem)", fontWeight: 700, color: "#ffffff", marginBottom: "0.5rem" }}>
+            {data.title}
+          </h1>
+          
+          <p style={{ fontFamily: "'Nunito', sans-serif", color: "#cbbfff", fontSize: "1.05rem", lineHeight: 1.7, maxWidth: "750px" }}>
+            {data.desc}
           </p>
-          <p
-            style={{
-              fontFamily: "'Nunito', sans-serif",
-              color: "rgba(223,217,255,0.75)",
-              lineHeight: 1.8,
-              fontSize: "1.05rem",
-            }}
-          >
-            Insulinooporność – obecna u 50–70% kobiet z PCOS – jest kluczowym
-            mechanizmem napędowym choroby. Wysoki poziom insuliny stymuluje
-            jajniki do nadprodukcji androgenów, co z kolei hamuje owulację
-            i nasila objawy kliniczne.
-          </p>
-        </section>
 
-        {/* Symptoms */}
-        <section>
-          <h2
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: "1.9rem",
-              color: "#ffffff",
-              marginBottom: "1.5rem",
-            }}
-          >
-            Objawy
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {symptoms.map((symptom) => (
-              <div
-                key={symptom}
-                className="flex items-start gap-3 rounded-xl px-4 py-3"
-                style={{
-                  background: "rgba(140,184,240,0.1)",
-                  border: "1px solid rgba(140,184,240,0.2)",
-                }}
-              >
-                <span style={{ color: "#8cb8f0", marginTop: "2px", flexShrink: 0 }}>
-                  ✦
-                </span>
-                <span
+          {/* SUB-BUTTONY DLA TARCZYCY */}
+          {activeTab === "tarczyca" && (
+            <div className="flex flex-wrap gap-2 mt-6 pt-6 border-t border-[rgba(255,255,255,0.12)]">
+              {[
+                { id: "niedoczynnosc", label: "Niedoczynność" },
+                { id: "nadczynnosc", label: "Nadczynność" },
+                { id: "hashimoto", label: "Hashimoto" },
+              ].map((sub) => (
+                <button
+                  key={sub.id}
+                  onClick={() => setThyroidSubtype(sub.id as any)}
+                  className="px-4 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all"
                   style={{
-                    fontFamily: "'Nunito', sans-serif",
-                    color: "#DFD9FF",
-                    fontSize: "0.95rem",
-                    lineHeight: 1.5,
+                    background: thyroidSubtype === sub.id ? "rgba(255,255,255,0.25)" : "rgba(255,255,255,0.05)",
+                    color: "#ffffff",
+                    border: `1px solid ${thyroidSubtype === sub.id ? "rgba(255,255,255,0.4)" : "rgba(255,255,255,0.1)"}`
                   }}
                 >
+                  {sub.label}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* --- SEKCJA: SYGNAŁY ALARMOWE (image_97891f.png) --- */}
+      <div className="max-w-4xl mx-auto px-6 py-12">
+        <section>
+          <div className="flex items-center gap-3 mb-6">
+            <ShieldAlert className="w-6 h-6 text-[#e8bfff]" />
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.7rem", color: "#ffffff", fontWeight: 600 }}>
+              Sygnały alarmowe organizmu (Objawy)
+            </h2>
+          </div>
+          <div className="space-y-3">
+            {data.symptoms.map((symptom) => (
+              <div
+                key={symptom}
+                className="flex items-center gap-4 rounded-2xl px-6 py-4 transition-all hover:bg-[rgba(255,255,255,0.09)]"
+                style={{ background: "rgba(255, 255, 255, 0.07)", border: "1px solid rgba(255, 255, 255, 0.1)" }}
+              >
+                <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: "#e8bfff" }} />
+                <span style={{ fontFamily: "'Nunito', sans-serif", color: "#ffffff", fontSize: "1rem" }}>
                   {symptom}
                 </span>
               </div>
             ))}
           </div>
         </section>
-
-        {/* Phenotypes */}
-        <section>
-          <h2
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: "1.9rem",
-              color: "#ffffff",
-              marginBottom: "1.5rem",
-            }}
-          >
-            Cztery fenotypy PCOS
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              { f: "A", name: "Klasyczny z HA", desc: "Hiperandrogenizm + oligoowulacja + torbiele na USG (najcięższy)" },
-              { f: "B", name: "Klasyczny bez torbieli", desc: "Hiperandrogenizm + oligoowulacja, bez torbieli na USG" },
-              { f: "C", name: "Owulacyjny z HA", desc: "Hiperandrogenizm + torbiele, regularne owulacje" },
-              { f: "D", name: "Bez hiperandrogenizmu", desc: "Oligoowulacja + torbiele, bez nadmiaru androgenów (najłagodniejszy)" },
-            ].map(({ f, name, desc }) => (
-              <div
-                key={f}
-                className="rounded-2xl p-5"
-                style={{
-                  background: "rgba(255,255,255,0.06)",
-                  border: "1px solid rgba(140,184,240,0.2)",
-                }}
-              >
-                <div className="flex items-center gap-3 mb-2">
-                  <div
-                    className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ background: "#8cb8f0", color: "#1a1040" }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: "'Playfair Display', serif",
-                        fontWeight: 700,
-                        fontSize: "0.9rem",
-                      }}
-                    >
-                      {f}
-                    </span>
-                  </div>
-                  <span
-                    style={{
-                      fontFamily: "'Playfair Display', serif",
-                      color: "#ffffff",
-                      fontWeight: 600,
-                      fontSize: "1rem",
-                    }}
-                  >
-                    {name}
-                  </span>
-                </div>
-                <p
-                  style={{
-                    fontFamily: "'Nunito', sans-serif",
-                    color: "rgba(223,217,255,0.6)",
-                    fontSize: "0.9rem",
-                    lineHeight: 1.5,
-                    paddingLeft: "2.75rem",
-                  }}
-                >
-                  {desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Diagnostics */}
-        <section>
-          <h2
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: "1.9rem",
-              color: "#ffffff",
-              marginBottom: "1.5rem",
-            }}
-          >
-            Diagnostyka
-          </h2>
-          <div className="space-y-3">
-            {diagnostics.map(({ name, desc }) => (
-              <div
-                key={name}
-                className="flex items-start gap-4 rounded-xl p-4"
-                style={{
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(223,217,255,0.08)",
-                }}
-              >
-                <div
-                  className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
-                  style={{ background: "#8cb8f0" }}
-                />
-                <div>
-                  <div
-                    style={{
-                      fontFamily: "'Nunito', sans-serif",
-                      color: "#DFD9FF",
-                      fontWeight: 700,
-                      fontSize: "0.95rem",
-                    }}
-                  >
-                    {name}
-                  </div>
-                  <div
-                    style={{
-                      fontFamily: "'Nunito', sans-serif",
-                      color: "rgba(223,217,255,0.6)",
-                      fontSize: "0.9rem",
-                      lineHeight: 1.5,
-                    }}
-                  >
-                    {desc}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Treatment */}
-        <section>
-          <h2
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: "1.9rem",
-              color: "#ffffff",
-              marginBottom: "1.5rem",
-            }}
-          >
-            Metody leczenia
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {[
-              {
-                icon: Activity,
-                type: "Styl życia",
-                color: "#80d9b4",
-                items: [
-                  "Dieta niskoglikemiczna",
-                  "Regularna aktywność fizyczna",
-                  "Redukcja masy ciała (5–10% poprawia owulację)",
-                  "Ograniczenie stresu",
-                ],
-              },
-              {
-                icon: Pill,
-                type: "Leczenie farmakologiczne",
-                color: "#8cb8f0",
-                items: [
-                  "Metformina – redukcja insulinooporności",
-                  "Antykoncepcja hormonalna – regulacja cyklu",
-                  "Anty-androgeny (spironolakton)",
-                  "Letrozol / klomifen – indukcja owulacji",
-                ],
-              },
-              {
-                icon: Apple,
-                type: "Leczenie niepłodności",
-                color: "#c17de0",
-                items: [
-                  "Letrozol (pierwsza linia)",
-                  "Klomifen cytrynian",
-                  "Gonadotropiny",
-                  "In vitro (IVF) – przy braku odpowiedzi",
-                ],
-              },
-            ].map(({ type, items, icon: Icon, color }) => (
-              <div
-                key={type}
-                className="rounded-2xl p-6"
-                style={{
-                  background: "rgba(255,255,255,0.06)",
-                  border: `1px solid ${color}33`,
-                }}
-              >
-                <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-                  style={{ background: `${color}22` }}
-                >
-                  <Icon className="w-5 h-5" style={{ color }} />
-                </div>
-                <h3
-                  className="mb-3"
-                  style={{
-                    fontFamily: "'Playfair Display', serif",
-                    color: "#ffffff",
-                    fontSize: "1.05rem",
-                  }}
-                >
-                  {type}
-                </h3>
-                <ul className="space-y-2">
-                  {items.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-2"
-                      style={{
-                        fontFamily: "'Nunito', sans-serif",
-                        color: "rgba(223,217,255,0.7)",
-                        fontSize: "0.9rem",
-                        lineHeight: 1.5,
-                      }}
-                    >
-                      <span style={{ color, flexShrink: 0 }}>•</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Lifestyle */}
-        <section>
-          <h2
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: "1.9rem",
-              color: "#ffffff",
-              marginBottom: "1.5rem",
-            }}
-          >
-            Styl życia z PCOS
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {lifestyleTips.map(({ icon, tip, desc }) => (
-              <div
-                key={tip}
-                className="rounded-2xl p-5 flex items-start gap-4"
-                style={{
-                  background: "rgba(255,255,255,0.06)",
-                  border: "1px solid rgba(223,217,255,0.1)",
-                }}
-              >
-                <span className="text-2xl flex-shrink-0">{icon}</span>
-                <div>
-                  <div
-                    style={{
-                      fontFamily: "'Nunito', sans-serif",
-                      color: "#DFD9FF",
-                      fontWeight: 700,
-                      fontSize: "0.95rem",
-                      marginBottom: "0.25rem",
-                    }}
-                  >
-                    {tip}
-                  </div>
-                  <div
-                    style={{
-                      fontFamily: "'Nunito', sans-serif",
-                      color: "rgba(223,217,255,0.6)",
-                      fontSize: "0.9rem",
-                      lineHeight: 1.5,
-                    }}
-                  >
-                    {desc}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Disclaimer */}
-        <div
-          className="rounded-2xl p-6 flex items-start gap-4"
-          style={{
-            background: "rgba(255,255,255,0.05)",
-            border: "1px solid rgba(223,217,255,0.1)",
-          }}
-        >
-          <Info className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#DFD9FF" }} />
-          <p
-            style={{
-              fontFamily: "'Nunito', sans-serif",
-              color: "rgba(223,217,255,0.65)",
-              fontSize: "0.9rem",
-              lineHeight: 1.7,
-            }}
-          >
-            <strong style={{ color: "#DFD9FF" }}>Informacja edukacyjna.</strong>{" "}
-            Treści zawarte na tej stronie mają wyłącznie charakter informacyjny
-            i nie zastępują porady medycznej. W przypadku objawów zawsze
-            skonsultuj się z lekarzem endokrynologiem lub ginekologiem.
-          </p>
-        </div>
       </div>
     </div>
   );
