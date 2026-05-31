@@ -18,12 +18,14 @@ const BadaniaPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#3a3068] text-white p-6 md:p-12">
+    <div className="min-h-screen bg-[#493780] text-white p-6 md:p-12">
       <div className="max-w-5xl mx-auto" style={{ paddingTop: "80px" }}>
         {/* Header */}
         <header className="mb-12">
-          <h1 className="text-4xl font-bold mb-4">Badania</h1>
-          <p className="text-gray-300 text-lg max-w-2xl">
+          <h1 className="text-4xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2rem, 5vw, 3.5rem)" }}>
+            Badania
+          </h1>
+          <p className="text-gray-300 text-lg max-w-2xl" style={{ fontFamily: "'Nunito', sans-serif", color: "rgba(223, 217, 255, 0.75)" }}>
             Odpowiednia diagnostyka to pierwszy krok do zdrowia. Przygotowaliśmy listę kluczowych parametrów, 
             które pozwolą uzyskać pełny obraz Twojej gospodarki hormonalnej.
           </p>
