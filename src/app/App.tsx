@@ -5,7 +5,7 @@ import { OnasPage } from "./components/OnasPage";
 import { ChorobyPage } from "./components/ChorobyPage";
 import { ProfilaktykaPage } from "./components/ProfilaktykaPage";
 import { AppPage } from "./components/AppPage";
-import { BadaniaPage } from "./components/BadaniaPage";
+import BadaniaPage from "./components/BadaniaPage";
 
 export type Tab = "home" | "o-nas" | "choroby" | "profilaktyka" | "badania" | "aplikacja";
 
