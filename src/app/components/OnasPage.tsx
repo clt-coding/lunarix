@@ -1,4 +1,16 @@
 import { AlertCircle, Stethoscope, Pill, Info } from "lucide-react";
+// @ts-ignore
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import {
+    faPeopleGroup,
+    faBrain,
+    faChartColumn,
+    faMoon,
+    faBookOpen
+} from '@fortawesome/free-solid-svg-icons';
+
 
 export function OnasPage() {
   return (
@@ -77,21 +89,39 @@ export function OnasPage() {
 
               <div className="space-y-4">
                   {[
-                      "👩‍💻 Tworzone przez kobiety dla kobiet – rozumiemy, jak wygląda realne doświadczenie objawów, które często są ignorowane lub bagatelizowane",
-                      "🧠 Łączymy dane i edukację – zamiast chaosu objawów pokazujemy uporządkowany obraz zdrowia hormonalnego",
-                      "📊 Wykorzystujemy dane z Apple Health, Flo i wearable devices, aby wykrywać zmiany w czasie",
-                      "🌙 Skupiamy się na chorobach, które dotykają milionów kobiet: PCOS, endometrioza i choroby tarczycy",
-                      "📚 Bazujemy na wiedzy naukowej, nie opiniach – każda informacja ma swoje źródło",
-                  ].map((item) => (
+                      {
+                          icon: faPeopleGroup,
+                          text: "Tworzone przez kobiety dla kobiet – rozumiemy, jak wygląda realne doświadczenie objawów, które często są ignorowane lub bagatelizowane"
+                      },
+                      {
+                          icon: faBrain,
+                          text: "Łączymy dane i edukację – zamiast chaosu objawów pokazujemy uporządkowany obraz zdrowia hormonalnego"
+                      },
+                      {
+                          icon: faChartColumn,
+                          text: "Wykorzystujemy dane z Apple Health, Flo i wearable devices, aby wykrywać zmiany w czasie"
+                      },
+                      {
+                          icon: faMoon,
+                          text: "Skupiamy się na chorobach, które dotykają milionów kobiet: PCOS, endometrioza i choroby tarczycy"
+                      },
+                      {
+                          icon: faBookOpen,
+                          text: "Bazujemy na wiedzy naukowej, nie opiniach – każda informacja ma swoje źródło"
+                      }
+                  ].map((item,index) => (
                       <div
-                          key={item}
+                          key={index}
                           className="flex items-start gap-3 rounded-xl px-4 py-3"
                           style={{
                               background: "rgba(193,125,224,0.1)",
                               border: "1px solid rgba(193,125,224,0.2)",
                           }}
                       >
-                          <span style={{ color: "#c17de0", marginTop: "2px" }}>✦</span>
+                          {/*<span style={{ color: "#c17de0", marginTop: "2px" }}>✦</span>*/}
+                          <div style={{ color: "#e2deea", marginTop: "3px", minWidth: "20px", textAlign: "center" }}>
+                              <FontAwesomeIcon icon={item.icon} />
+                          </div>
                           <span
                               style={{
                                   fontFamily: "'Nunito', sans-serif",
@@ -100,7 +130,7 @@ export function OnasPage() {
                                   lineHeight: 1.6,
                               }}
                           >
-          {item}
+          {item.text}
         </span>
                       </div>
                   ))}
@@ -131,37 +161,39 @@ export function OnasPage() {
               </h2>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {[
-                      {
-                          name: "Email",
-                          icon: "✉️",
-                          link: "mailto:contact.cltcoding@gmail.com",
-                      },
-                      {
-                          name: "Instagram",
-                          icon: "📸",
-                          link: "https://www.instagram.com/clt_coding?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
-                      },
-                  ].map((social) => (
-                      <a
-                          key={social.name}
-                          href={social.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-center gap-2 rounded-xl px-4 py-3"
-                          style={{
-                              background: "rgba(255,255,255,0.05)",
-                              border: "1px solid rgba(223,217,255,0.1)",
-                              color: "#DFD9FF",
-                              fontFamily: "'Nunito', sans-serif",
-                              fontSize: "0.95rem",
-                              textDecoration: "none",
-                          }}
-                      >
-                          <span>{social.icon}</span>
-                          {social.name}
-                      </a>
-                  ))}
+                  {/* Sekcja Email */}
+                  <div
+                      className="flex items-center justify-center gap-2 rounded-xl px-4 py-3"
+                      style={{
+                          background: "rgba(255,255,255,0.05)",
+                          border: "1px solid rgba(223,217,255,0.1)",
+                          color: "#DFD9FF",
+                          fontFamily: "'Nunito', sans-serif",
+                          fontSize: "0.95rem",
+                      }}
+                  >
+                      <FontAwesomeIcon icon={faEnvelope} />
+                      email: contact.cltcoding@gmail.com
+                  </div>
+
+                  {/* Sekcja Instagram */}
+                  <a
+                      href="https://www.instagram.com/clt_coding?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 rounded-xl px-4 py-3 transition-opacity hover:opacity-80"
+                      style={{
+                          background: "rgba(255,255,255,0.05)",
+                          border: "1px solid rgba(223,217,255,0.1)",
+                          color: "#DFD9FF",
+                          fontFamily: "'Nunito', sans-serif",
+                          fontSize: "0.95rem",
+                          textDecoration: "none",
+                      }}
+                  >
+                      <FontAwesomeIcon icon={faInstagram} />
+                      Instagram
+                  </a>
               </div>
           </section>
       </div>
