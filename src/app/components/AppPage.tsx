@@ -46,276 +46,6 @@ const features = [
   },
 ];
 
-function PhoneMockup() {
-  return (
-    <div
-      className="relative mx-auto"
-      style={{
-        width: "260px",
-        height: "520px",
-        background: "#1a0d2e",
-        borderRadius: "36px",
-        border: "6px solid rgba(223,217,255,0.25)",
-        boxShadow:
-          "0 0 60px rgba(193,125,224,0.25), 0 0 120px rgba(73,55,128,0.4), inset 0 0 30px rgba(0,0,0,0.4)",
-        overflow: "hidden",
-        flexShrink: 0,
-      }}
-    >
-      {/* Dynamic island */}
-      <div
-        style={{
-          position: "absolute",
-          top: "12px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "72px",
-          height: "20px",
-          background: "#000",
-          borderRadius: "10px",
-          zIndex: 10,
-        }}
-      />
-
-      {/* Screen content */}
-      <div className="pt-10 px-4 pb-4 h-full flex flex-col gap-3 overflow-hidden">
-        {/* App bar */}
-        <div className="flex items-center justify-between pt-2">
-          <div>
-            <div
-              style={{
-                color: "#ffffff",
-                fontFamily: "'Playfair Display', serif",
-                fontWeight: 700,
-                fontSize: "15px",
-              }}
-            >
-              🌙 Lunarix
-            </div>
-          </div>
-          <div
-            style={{
-              background: "rgba(193,125,224,0.2)",
-              color: "#c17de0",
-              borderRadius: "20px",
-              padding: "2px 8px",
-              fontSize: "10px",
-              fontFamily: "'Nunito', sans-serif",
-              fontWeight: 600,
-            }}
-          >
-            Dzień 14
-          </div>
-        </div>
-
-        {/* Cycle bar */}
-        <div
-          style={{
-            background: "rgba(223,217,255,0.07)",
-            borderRadius: "14px",
-            padding: "10px 12px",
-          }}
-        >
-          <div
-            style={{
-              color: "rgba(223,217,255,0.5)",
-              fontSize: "9px",
-              fontFamily: "'Nunito', sans-serif",
-              marginBottom: "6px",
-              letterSpacing: "0.08em",
-            }}
-          >
-            CYKL MENSTRUACYJNY
-          </div>
-          <div style={{ display: "flex", gap: "2px" }}>
-            {Array.from({ length: 28 }).map((_, i) => (
-              <div
-                key={i}
-                style={{
-                  flex: 1,
-                  height: "5px",
-                  borderRadius: "3px",
-                  background:
-                    i < 5
-                      ? "#e87d9a"
-                      : i < 14
-                      ? "rgba(223,217,255,0.15)"
-                      : i === 14
-                      ? "#c17de0"
-                      : "rgba(223,217,255,0.08)",
-                }}
-              />
-            ))}
-          </div>
-          <div
-            style={{
-              color: "#c17de0",
-              fontSize: "10px",
-              fontFamily: "'Nunito', sans-serif",
-              marginTop: "5px",
-              fontWeight: 600,
-            }}
-          >
-            Faza owulacyjna
-          </div>
-        </div>
-
-        {/* Symptoms */}
-        <div
-          style={{
-            background: "rgba(223,217,255,0.07)",
-            borderRadius: "14px",
-            padding: "10px 12px",
-          }}
-        >
-          <div
-            style={{
-              color: "rgba(223,217,255,0.5)",
-              fontSize: "9px",
-              fontFamily: "'Nunito', sans-serif",
-              marginBottom: "6px",
-              letterSpacing: "0.08em",
-            }}
-          >
-            DZISIEJSZE OBJAWY
-          </div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "4px" }}>
-            {["Zmęczenie", "Wzdęcia", "Ból głowy"].map((s) => (
-              <span
-                key={s}
-                style={{
-                  background: "rgba(193,125,224,0.25)",
-                  color: "#c17de0",
-                  fontSize: "9px",
-                  padding: "2px 7px",
-                  borderRadius: "8px",
-                  fontFamily: "'Nunito', sans-serif",
-                  fontWeight: 600,
-                }}
-              >
-                {s}
-              </span>
-            ))}
-            <span
-              style={{
-                background: "rgba(223,217,255,0.1)",
-                color: "rgba(223,217,255,0.5)",
-                fontSize: "9px",
-                padding: "2px 7px",
-                borderRadius: "8px",
-                fontFamily: "'Nunito', sans-serif",
-              }}
-            >
-              + Dodaj
-            </span>
-          </div>
-        </div>
-
-        {/* Biometrics */}
-        <div
-          style={{
-            background: "rgba(223,217,255,0.07)",
-            borderRadius: "14px",
-            padding: "10px 12px",
-          }}
-        >
-          <div
-            style={{
-              color: "rgba(223,217,255,0.5)",
-              fontSize: "9px",
-              fontFamily: "'Nunito', sans-serif",
-              marginBottom: "8px",
-              letterSpacing: "0.08em",
-            }}
-          >
-            BIOMETRYKI DZISIAJ
-          </div>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "6px",
-            }}
-          >
-            {[
-              { label: "Tętno", value: "72 bpm", color: "#e87d9a" },
-              { label: "Waga", value: "62.4 kg", color: "#8cb8f0" },
-              { label: "Temp.", value: "36.7°C", color: "#80d9b4" },
-              { label: "Nastrój", value: "😊 Dobry", color: "#c17de0" },
-            ].map(({ label, value, color }) => (
-              <div
-                key={label}
-                style={{
-                  background: "rgba(255,255,255,0.04)",
-                  borderRadius: "8px",
-                  padding: "5px 8px",
-                  textAlign: "center",
-                }}
-              >
-                <div
-                  style={{
-                    color,
-                    fontSize: "11px",
-                    fontFamily: "'Nunito', sans-serif",
-                    fontWeight: 700,
-                  }}
-                >
-                  {value}
-                </div>
-                <div
-                  style={{
-                    color: "rgba(223,217,255,0.4)",
-                    fontSize: "8px",
-                    fontFamily: "'Nunito', sans-serif",
-                  }}
-                >
-                  {label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Reminder */}
-        <div
-          style={{
-            background: "rgba(128,217,180,0.12)",
-            border: "1px solid rgba(128,217,180,0.25)",
-            borderRadius: "14px",
-            padding: "8px 12px",
-            display: "flex",
-            alignItems: "center",
-            gap: "8px",
-          }}
-        >
-          <span style={{ fontSize: "14px" }}>💊</span>
-          <div>
-            <div
-              style={{
-                color: "#80d9b4",
-                fontSize: "10px",
-                fontFamily: "'Nunito', sans-serif",
-                fontWeight: 700,
-              }}
-            >
-              Lek: Lewotyroksyna
-            </div>
-            <div
-              style={{
-                color: "rgba(223,217,255,0.5)",
-                fontSize: "9px",
-                fontFamily: "'Nunito', sans-serif",
-              }}
-            >
-              Przyjęta o 7:30 ✓
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export function AppPage() {
   return (
     <div style={{ paddingTop: "80px", minHeight: "100vh" }}>
@@ -344,7 +74,7 @@ export function AppPage() {
                   border: "1px solid rgba(223,217,255,0.2)",
                 }}
               >
-                📲 Wkrótce na App Store i Google Play
+                Wkrótce na App Store i Google Play
               </div>
 
               <h1
@@ -372,7 +102,7 @@ export function AppPage() {
                   maxWidth: "480px",
                 }}
               >
-                Lunarix to pierwsza polska aplikacja do monitorowania zdrowia
+                Lunarix to pierwsza taka aplikacja do monitorowania zdrowia i generowania raportu pdf
                 zaprojektowana specjalnie dla kobiet z endometriozą, PCOS oraz
                 chorobami tarczycy. Śledź objawy, biometryki i cykl – wszystko
                 w jednym miejscu.
@@ -389,10 +119,10 @@ export function AppPage() {
                     fontWeight: 700,
                   }}
                 >
-                  <span className="text-2xl">🍎</span>
+                  <img src="/assets/images/Apple_logo_black.svg" alt="apple" width="30" height="30" />
                   <div className="text-left">
                     <div style={{ fontSize: "0.7rem", fontWeight: 400, opacity: 0.6 }}>
-                      Pobierz w
+                      Wkrótce
                     </div>
                     <div style={{ fontSize: "1rem" }}>App Store</div>
                   </div>
@@ -411,48 +141,19 @@ export function AppPage() {
                   <span className="text-2xl">▶</span>
                   <div className="text-left">
                     <div style={{ fontSize: "0.7rem", fontWeight: 400, opacity: 0.6 }}>
-                      Pobierz w
+                      Wkrótce
                     </div>
                     <div style={{ fontSize: "1rem" }}>Google Play</div>
                   </div>
                 </button>
               </div>
 
-              {/* Stats */}
-              <div className="flex gap-8">
-                {[
-                  { val: "4.9★", label: "Ocena" },
-                  { val: "10k+", label: "Użytkowniczek" },
-                  { val: "Gratis", label: "Pobierz za darmo" },
-                ].map(({ val, label }) => (
-                  <div key={label}>
-                    <div
-                      style={{
-                        fontFamily: "'Playfair Display', serif",
-                        color: "#ffffff",
-                        fontWeight: 700,
-                        fontSize: "1.3rem",
-                      }}
-                    >
-                      {val}
-                    </div>
-                    <div
-                      style={{
-                        fontFamily: "'Nunito', sans-serif",
-                        color: "rgba(223,217,255,0.5)",
-                        fontSize: "0.8rem",
-                      }}
-                    >
-                      {label}
-                    </div>
-                  </div>
-                ))}
-              </div>
+              
             </div>
 
             {/* Phone */}
             <div className="flex justify-center">
-              <PhoneMockup />
+              <img src="/assets/images/phone.png" alt="phone" height="600" width="300" style={{ border: "5px black solid", borderRadius: "35px" }} />
             </div>
           </div>
         </div>
@@ -527,76 +228,7 @@ export function AppPage() {
         </div>
       </section>
 
-      {/* CTA banner */}
-      <section className="px-6 py-20">
-        <div
-          className="max-w-4xl mx-auto rounded-3xl px-8 py-16 text-center relative overflow-hidden"
-          style={{
-            background:
-              "linear-gradient(135deg, rgba(193,125,224,0.2) 0%, rgba(140,184,240,0.15) 100%)",
-            border: "1px solid rgba(223,217,255,0.15)",
-          }}
-        >
-          <div
-            className="absolute -top-10 -left-10 w-56 h-56 rounded-full blur-3xl pointer-events-none"
-            style={{ background: "#c17de0", opacity: 0.15 }}
-          />
-          <div className="relative z-10">
-            <div className="text-5xl mb-6">🌙</div>
-            <h2
-              style={{
-                fontFamily: "'Playfair Display', serif",
-                fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)",
-                color: "#ffffff",
-                marginBottom: "1rem",
-              }}
-            >
-              Dołącz do Lunarix już dziś
-            </h2>
-            <p
-              style={{
-                fontFamily: "'Nunito', sans-serif",
-                color: "rgba(223,217,255,0.65)",
-                fontSize: "1rem",
-                lineHeight: 1.75,
-                marginBottom: "2rem",
-                maxWidth: "480px",
-                margin: "0 auto 2rem",
-              }}
-            >
-              Zacznij monitorować swoje zdrowie, rozumieć swoje ciało i żyć
-              pełniej – nawet z chorobą przewlekłą.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <button
-                className="px-8 py-4 rounded-full transition-all duration-200 hover:opacity-90 hover:scale-105"
-                style={{
-                  background: "#DFD9FF",
-                  color: "#493780",
-                  fontFamily: "'Nunito', sans-serif",
-                  fontWeight: 700,
-                  fontSize: "1rem",
-                }}
-              >
-                🍎 Pobierz na iOS
-              </button>
-              <button
-                className="px-8 py-4 rounded-full transition-all duration-200 hover:opacity-90 hover:scale-105"
-                style={{
-                  background: "rgba(223,217,255,0.12)",
-                  color: "#DFD9FF",
-                  border: "1px solid rgba(223,217,255,0.25)",
-                  fontFamily: "'Nunito', sans-serif",
-                  fontWeight: 600,
-                  fontSize: "1rem",
-                }}
-              >
-                ▶ Pobierz na Android
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+      
     </div>
   );
 }
