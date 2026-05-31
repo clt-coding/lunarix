@@ -80,8 +80,7 @@ export function HomePage({ onTabChange }: HomePageProps) {
               marginBottom: "1rem",
             }}
           >
-            Informacje, wsparcie i monitoring dla kobiet z endometriozą,
-            PCOS i chorobami tarczycy
+            Nauka, zapobieganie i pomoc z chorobami hormonalnymi dla kobiet
           </p>
 
           <p
@@ -95,14 +94,14 @@ export function HomePage({ onTabChange }: HomePageProps) {
               margin: "0 auto 2.5rem",
             }}
           >
-            Twoje ciało mówi. My pomagamy Ci słuchać. Lunarix łączy rzetelną
-            wiedzę medyczną z inteligentnym śledzeniem objawów, aby wspierać
-            Cię na każdym etapie Twojej drogi zdrowotnej.
+            Twoje ciało wysyła sygnały – my pomagamy je zrozumieć. 
+            Lunarix to kompleksowa platforma stworzona dla kobiet, 
+            które szukają jasnych odpowiedzi w świecie zaburzeń hormonalnych.
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center">
             <button
-              onClick={() => onTabChange("endometrioza")}
+              onClick={() => onTabChange("choroby")}
               className="flex items-center gap-2 px-8 py-4 rounded-full transition-all duration-300 hover:opacity-90 hover:scale-105 active:scale-95"
               style={{
                 background: "#DFD9FF",
@@ -210,7 +209,7 @@ export function HomePage({ onTabChange }: HomePageProps) {
             {diseases.map(({ id, icon: Icon, title, description, color, stats }) => (
               <button
                 key={id}
-                onClick={() => onTabChange(id)}
+                onClick={() => onTabChange("choroby")}
                 className="text-left rounded-2xl p-8 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl group"
                 style={{
                   background: "rgba(255,255,255,0.07)",
