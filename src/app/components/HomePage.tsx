@@ -7,32 +7,32 @@ interface HomePageProps {
 
 const diseases = [
   {
-    id: "endometrioza" as Tab,
-    icon: Heart,
-    title: "Endometrioza",
-    description:
-      "Choroba, w której tkanka podobna do endometrium rośnie poza macicą – na jajnikach, jajowodach lub jelitach. Dotyka ok. 10% kobiet w wieku rozrodczym.",
-    color: "#c17de0",
-    stats: "176 mln kobiet na świecie",
+      id: "endometrioza" as Tab,
+      icon: Heart,
+      title: "Endometriosis",
+      description:
+          "A disease where tissue similar to the lining of the uterus grows outside the uterus – on the ovaries, fallopian tubes, or intestines. It affects about 10% of women of reproductive age.",
+      color: "#c17de0",
+      stats: "176M women worldwide",
   },
-  {
-    id: "pcos" as Tab,
-    icon: Activity,
-    title: "PCOS",
-    description:
-      "Zespół policystycznych jajników – najczęstsze zaburzenie hormonalne u kobiet. Prowadzi do nieregularnych cykli, hiperandrogenizmu i trudności z płodnością.",
-    color: "#8cb8f0",
-    stats: "1 na 10 kobiet",
-  },
-  {
-    id: "tarczyca" as Tab,
-    icon: Zap,
-    title: "Choroby tarczycy",
-    description:
-      "Niedoczynność, nadczynność i Hashimoto – choroby tarczycy wpływają na metabolizm, energię i nastrój. Kobiety chorują na nie 8× częściej niż mężczyźni.",
-    color: "#80d9b4",
-    stats: "8× częściej u kobiet",
-  },
+    {
+        id: "pcos" as Tab,
+        icon: Activity,
+        title: "PCOS",
+        description:
+            "Polycystic Ovary Syndrome – the most common hormonal disorder among women. It leads to irregular cycles, hyperandrogenism, and fertility challenges.",
+        color: "#8cb8f0",
+        stats: "1 in 10 women",
+    },
+    {
+        id: "tarczyca" as Tab,
+        icon: Zap,
+        title: "Thyroid Diseases",
+        description:
+            "Hypothyroidism, hyperthyroidism, and Hashimoto's – thyroid disorders affect metabolism, energy, and mood. Women develop them 8× more often than men.",
+        color: "#80d9b4",
+        stats: "8× more common in women",
+    },
 ];
 
 export function HomePage({ onTabChange }: HomePageProps) {
@@ -80,7 +80,7 @@ export function HomePage({ onTabChange }: HomePageProps) {
               marginBottom: "1rem",
             }}
           >
-            Nauka, zapobieganie i pomoc z chorobami hormonalnymi dla kobiet
+              Education, prevention, and support for women's hormonal health
           </p>
 
           <p
@@ -94,9 +94,9 @@ export function HomePage({ onTabChange }: HomePageProps) {
               margin: "0 auto 2.5rem",
             }}
           >
-            Twoje ciało wysyła sygnały – my pomagamy je zrozumieć. 
-            Lunarix to kompleksowa platforma stworzona dla kobiet, 
-            które szukają jasnych odpowiedzi w świecie zaburzeń hormonalnych.
+            Your body sends signals – we help you understand them. L
+              Lunarix is a comprehensive platform created for women
+              seeking clear answers in the world of hormonal disorders.
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center">
@@ -111,7 +111,7 @@ export function HomePage({ onTabChange }: HomePageProps) {
                 fontSize: "1rem",
               }}
             >
-              Poznaj choroby
+                Learn about diseases
               <ArrowRight className="w-4 h-4" />
             </button>
             <button
@@ -127,7 +127,7 @@ export function HomePage({ onTabChange }: HomePageProps) {
               }}
             >
               <Download className="w-4 h-4" />
-              Pobierz aplikację
+                Download the App
             </button>
           </div>
         </div>
@@ -141,16 +141,16 @@ export function HomePage({ onTabChange }: HomePageProps) {
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           {[
             {
-              stat: "176 mln",
-              desc: "kobiet na świecie cierpi na endometriozę",
+                stat: "176M",
+                desc: "women worldwide suffer from endometriosis",
             },
             {
-              stat: "~10%",
-              desc: "kobiet w wieku rozrodczym zmaga się z PCOS",
+                stat: "~10%",
+                desc: "of women of reproductive age struggle with PCOS",
             },
             {
-              stat: "8×",
-              desc: "częściej choroby tarczycy dotykają kobiet niż mężczyzn",
+                stat: "8×",
+                desc: "more often thyroid diseases affect women than men",
             },
           ].map(({ stat, desc }) => (
             <div key={stat}>
@@ -192,7 +192,7 @@ export function HomePage({ onTabChange }: HomePageProps) {
               color: "#ffffff",
             }}
           >
-            Nasze obszary zdrowia
+              Our Health Focus Areas
           </h2>
           <p
             className="text-center mb-12"
@@ -202,7 +202,7 @@ export function HomePage({ onTabChange }: HomePageProps) {
               fontSize: "1.05rem",
             }}
           >
-            Rzetelne informacje o chorobach najczęściej diagnozowanych u kobiet
+              Reliable information on the conditions most frequently diagnosed in women
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -270,7 +270,7 @@ export function HomePage({ onTabChange }: HomePageProps) {
                       fontSize: "0.9rem",
                     }}
                   >
-                    Dowiedz się więcej
+                    Learn more
                   </span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </div>
@@ -303,7 +303,7 @@ export function HomePage({ onTabChange }: HomePageProps) {
                 color: "#ffffff",
               }}
             >
-              Monitoruj swoje zdrowie z Lunarix
+                Monitor Your Health with Lunarix
             </h2>
             <p
               className="mb-8 max-w-xl mx-auto"
@@ -314,9 +314,9 @@ export function HomePage({ onTabChange }: HomePageProps) {
                 lineHeight: 1.75,
               }}
             >
-              Nasza aplikacja pozwala śledzić objawy, monitorować biometryki
-              i generować raporty dla lekarza. Stworzona specjalnie dla kobiet
-              z endometriozą, PCOS i chorobami tarczycy.
+                Our application allows you to track symptoms, monitor biometrics,
+                and generate comprehensive doctor reports. Designed specifically for women
+                with endometriosis, PCOS, and thyroid conditions.
             </p>
             <button
               onClick={() => onTabChange("aplikacja")}
@@ -330,7 +330,7 @@ export function HomePage({ onTabChange }: HomePageProps) {
               }}
             >
               <Download className="w-5 h-5" />
-              Poznaj aplikację Lunarix
+                Discover the Lunarix App
             </button>
           </div>
         </div>

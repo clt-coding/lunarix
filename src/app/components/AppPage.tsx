@@ -7,43 +7,44 @@ import {
   Users,
 } from "lucide-react";
 
+
 const features = [
-  {
-    icon: Calendar,
-    title: "Kalendarz cyklu",
-    desc: "Śledź swój cykl menstruacyjny i przewiduj kolejne fazy z pomocą spersonalizowanych algorytmów.",
-    color: "#c17de0",
-  },
-  {
-    icon: Activity,
-    title: "Monitoring biometryczny",
-    desc: "Rejestruj tętno, wagę, temperaturę ciała, ciśnienie i inne wskaźniki zdrowotne każdego dnia.",
-    color: "#8cb8f0",
-  },
-  {
-    icon: Bell,
-    title: "Przypomnienia o lekach",
-    desc: "Inteligentne przypomnienia o dawkach leków, badaniach kontrolnych i wizytach u lekarza.",
-    color: "#80d9b4",
-  },
-  {
-    icon: FileText,
-    title: "Raporty dla lekarza",
-    desc: "Generuj kompleksowe raporty zdrowotne gotowe do okazania endokrynologowi lub ginekologowi.",
-    color: "#f0b88c",
-  },
-  {
-    icon: Shield,
-    title: "Bezpieczeństwo danych",
-    desc: "Twoje dane zdrowotne są szyfrowane end-to-end i nigdy nie trafiają do osób trzecich.",
-    color: "#e87d9a",
-  },
-  {
-    icon: Users,
-    title: "Wspólnota kobiet",
-    desc: "Dołącz do setek kobiet, które rozumieją Twoje wyzwania zdrowotne i wspierają się nawzajem.",
-    color: "#a8d8a8",
-  },
+    {
+        icon: Calendar,
+        title: "Cycle Calendar",
+        desc: "Track your menstrual cycle and predict upcoming phases with the help of personalized algorithms.",
+        color: "#c17de0",
+    },
+    {
+        icon: Activity,
+        title: "Biometric Monitoring",
+        desc: "Log your heart rate, weight, body temperature, blood pressure, and other health indicators every day.",
+        color: "#8cb8f0",
+    },
+    {
+        icon: Bell,
+        title: "Medication Reminders",
+        desc: "Smart reminders for medication doses, routine check-ups, and doctor appointments.",
+        color: "#80d9b4",
+    },
+    {
+        icon: FileText,
+        title: "Doctor Reports",
+        desc: "Generate comprehensive health reports ready to share with your endocrinologist or gynecologist.",
+        color: "#f0b88c",
+    },
+    {
+        icon: Shield,
+        title: "Data Security",
+        desc: "Your health data is encrypted end-to-end and is never shared with third parties.",
+        color: "#e87d9a",
+    },
+    {
+        icon: Users,
+        title: "Women's Community",
+        desc: "Join hundreds of women who understand your health challenges and support each other.",
+        color: "#a8d8a8",
+    },
 ];
 
 export function AppPage() {
@@ -74,7 +75,7 @@ export function AppPage() {
                   border: "1px solid rgba(223,217,255,0.2)",
                 }}
               >
-                Wkrótce na App Store i Google Play
+                  Coming soon to App Store and Google Play
               </div>
 
               <h1
@@ -87,9 +88,9 @@ export function AppPage() {
                   marginBottom: "1.5rem",
                 }}
               >
-                Aplikacja stworzona
+                  An app designed
                 <br />
-                <span style={{ color: "#DFD9FF" }}>z myślą o Tobie</span>
+                <span style={{ color: "#DFD9FF" }}>just for you</span>
               </h1>
 
               <p
@@ -102,10 +103,9 @@ export function AppPage() {
                   maxWidth: "480px",
                 }}
               >
-                Lunarix to pierwsza taka aplikacja do monitorowania zdrowia i generowania raportu pdf
-                zaprojektowana specjalnie dla kobiet z endometriozą, PCOS oraz
-                chorobami tarczycy. Śledź objawy, biometryki i cykl – wszystko
-                w jednym miejscu.
+                  Lunarix is the first health tracking app specifically designed
+                  for women dealing with endometriosis, PCOS, and thyroid conditions.
+                  Track your symptoms, biometrics, and cycle – all in one place.
               </p>
 
               {/* Download buttons */}
@@ -122,7 +122,7 @@ export function AppPage() {
                   <img src="/assets/images/Apple_logo_black.svg" alt="apple" width="30" height="30" />
                   <div className="text-left">
                     <div style={{ fontSize: "0.7rem", fontWeight: 400, opacity: 0.6 }}>
-                      Wkrótce
+                      Soon on the
                     </div>
                     <div style={{ fontSize: "1rem" }}>App Store</div>
                   </div>
@@ -141,7 +141,7 @@ export function AppPage() {
                   <span className="text-2xl">▶</span>
                   <div className="text-left">
                     <div style={{ fontSize: "0.7rem", fontWeight: 400, opacity: 0.6 }}>
-                      Wkrótce
+                      Soon on the
                     </div>
                     <div style={{ fontSize: "1rem" }}>Google Play</div>
                   </div>
@@ -173,7 +173,7 @@ export function AppPage() {
               color: "#ffffff",
             }}
           >
-            Wszystko, czego potrzebujesz
+              Everything you need
           </h2>
           <p
             className="text-center mb-14"
@@ -183,7 +183,7 @@ export function AppPage() {
               fontSize: "1.05rem",
             }}
           >
-            Funkcje zaprojektowane z myślą o kobietach z chorobami przewlekłymi
+              Features designed specifically for women with chronic conditions
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

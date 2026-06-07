@@ -67,8 +67,7 @@ export default function App() {
             fontFamily: "'Nunito', sans-serif",
           }}
         >
-          © 2026 Lunarix. Made with love by clt_coding ♥. Treści mają charakter wyłącznie informacyjny – nie
-          zastępują porady medycznej.
+            © 2026 Lunarix. Made with love by clt_coding ♥. The contents are for informational purposes only and do not substitute for professional medical advice.
         </p>
       </footer>
     </div>

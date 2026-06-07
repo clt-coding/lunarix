@@ -36,7 +36,7 @@ export function OnasPage() {
               lineHeight: 1.15,
             }}
           >
-            O nas ✨
+              About us ✨
           </h1>
           <h2
             style={{
@@ -46,8 +46,8 @@ export function OnasPage() {
               maxWidth: "600px",
             }}
           >
-              Lunarix narodził się podczas hackathonu, ale jego fundamentem jest realny i często pomijany problem — niska świadomość chorób hormonalnych u kobiet.
-              Chcemy nie tylko edukować, ale też wspierać w profilaktyce i pomagać zrozumieć, kiedy i gdzie szukać profesjonalnej pomocy.
+              Lunarix was born during a hackathon, but its foundation lies in a real and often overlooked problem — low awareness of hormonal diseases in women.
+              We want to not only educate but also support prevention and help women understand when and where to seek professional help.
           </h2>
         </div>
       </section>
@@ -61,7 +61,7 @@ export function OnasPage() {
               marginBottom: "1rem",
             }}
           >
-            Kim jesteśmy?
+              Who are we?
           </h2>
           <p
             style={{
@@ -71,8 +71,8 @@ export function OnasPage() {
               fontSize: "1.05rem",
             }}
           >
-              Cześć! Lunarix to nie tylko projekt technologiczny, ale przede wszystkim ludzie stojący za jego misją. Tworzy nas zespół 5 studentek informatyki, które łączą wiedzę technologiczną z pasją do zdrowia kobiet i AI.
-              Naszym celem jest rozwój produktu we współpracy z lekarzami oraz budowa społeczności „Luny”, która wspiera edukację i świadomość w obszarze zdrowia hormonalnego.
+              Hi there! Lunarix is not just a technological project, but above all, the people behind its mission. We are a team of 5 female computer science students who combine technical knowledge with a passion for women's health and AI.
+              Our goal is to develop the product in cooperation with medical doctors and to build the "Luna" community, which supports education and awareness in the field of hormonal health.
           </p>
         </section>
 
@@ -84,30 +84,30 @@ export function OnasPage() {
                   color: "#ffffff",
                   marginBottom: "1.5rem",
               }}>
-                  Dlaczego Lunarix?
+                  Why Lunarix?
               </h2>
 
               <div className="space-y-4">
                   {[
                       {
                           icon: faPeopleGroup,
-                          text: "Tworzone przez kobiety dla kobiet – rozumiemy, jak wygląda realne doświadczenie objawów, które często są ignorowane lub bagatelizowane"
+                          text: "Created by women for women – we understand the actual experience of symptoms that are frequently ignored or downplayed"
                       },
                       {
                           icon: faBrain,
-                          text: "Łączymy dane i edukację – zamiast chaosu objawów pokazujemy uporządkowany obraz zdrowia hormonalnego"
+                          text: "We combine data and education – instead of symptomatic chaos, we present an organized picture of hormonal health"
                       },
                       {
                           icon: faChartColumn,
-                          text: "Wykorzystujemy dane z Apple Health, Flo i wearable devices, aby wykrywać zmiany w czasie"
+                          text: "We leverage data from Apple Health, Flo, and wearables to detect changes over time"
                       },
                       {
                           icon: faMoon,
-                          text: "Skupiamy się na chorobach, które dotykają milionów kobiet: PCOS, endometrioza i choroby tarczycy"
+                          text: "We focus on diseases that affect millions of women: PCOS, endometriosis, and thyroid conditions"
                       },
                       {
                           icon: faBookOpen,
-                          text: "Bazujemy na wiedzy naukowej, nie opiniach – każda informacja ma swoje źródło"
+                          text: "We rely on scientific knowledge, not opinions – every piece of information is backed by a source"
                       }
                   ].map((item,index) => (
                       <div
@@ -143,7 +143,7 @@ export function OnasPage() {
                   color: "#ffffff",
                   marginBottom: "1.5rem",
               }}>
-                  Kontakt
+                  Contact
               </h2>
 
               <p style={{
@@ -153,8 +153,8 @@ export function OnasPage() {
                   fontSize: "1.05rem",
                   marginBottom: "1.5rem",
               }}>
-                  Chcemy budować Lunarix razem z kobietami, lekarzami i społecznością „Luny”.
-                  Jeśli chcesz z nami współpracować, wesprzeć projekt lub po prostu być częścią tej misji — odezwij się.
+                  We want to build Lunarix together with women, doctors, and the "Luna" community.
+                  If you want to collaborate with us, support the project, or simply be a part of this mission — get in touch.
               </p>
               <h2>
 

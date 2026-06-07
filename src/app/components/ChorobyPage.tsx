@@ -2,71 +2,71 @@ import { useState } from "react";
 import { ShieldAlert } from "lucide-react";
 
 const diseasesData = {
-  pcos: {
-    title: "PCOS (Zespół Policystycznych Jajników)",
-    tag: "Zaburzenia owulacji i metabolizmu",
-    desc: "Najczęstsze zaburzenie endokrynologiczne u kobiet w wieku rozrodczym. Głównym motorem choroby jest insulinooporność (u 50–70% pacjentek). Wysoki poziom insuliny stymuluje jajniki do nadprodukcji androgenów (męskich hormonów), co blokuje owulację, niszczy cerę i rozregulowuje cykl.",
-    symptoms: [
-      "Nieregularne lub rzadkie miesiączki (oligomenorrhoea) albo ich całkowity brak",
-      "Hirsutyzm – nadmierne owłosienie na twarzy, klatce piersiowej i brzuchu",
-      "Trądzik o podłożu hormonalnym oraz silne przetłuszczanie się skóry",
-      "Łysienie androgenowe (przerzedzenie włosów na koronie głowy)",
-      "Przyrost masy ciała, szczególnie w rzucie brzusznym (trzewnym)",
-      "Acanthosis nigricans – ciemnienie skóry w fałdach (kark, pachy) jako objaw insulinooporności"
-    ]
-  },
-  endometrioza: {
-    title: "Endometrioza",
-    tag: "Przewlekły systemowy stan zapalny",
-    desc: "Choroba polegająca na obecności komórek błony śluzowej macicy (endometrium) poza jej naturalnym położeniem – najczęściej na jajnikach, otrzewnej, jelitach czy pęcherzu moczowym. Tkanka ta reaguje na cykl hormonalny, krwawi wewnętrznie, wywołując guzy, zrosty i potężny ból przewlekły.",
-    symptoms: [
-      "Dysmenorrhea – potworny, paraliżujący ból podbrzusza i krzyża podczas miesiączki",
-      "Dyspareunia – głęboki ból w trakcie lub bezpośrednio po stosunku seksualnym",
-      "Dyschezja i dysuria – ból przy wypróżnianiu lub oddawaniu moczu, nasilający się w trakcie okresu",
-      "Przewlekły ból miednicy mniejszej, trwający niezależnie od fazy cyklu",
-      "Tzw. Endo-belly – bolesne, nagłe wzdęcia brzucha przypominające ciążę, połączone z problemami jelitowymi",
-      "Przewlekłe, obezwładniające zmęczenie wywołane ciągłą walką układu odpornościowego ze stanem zapalnym"
-    ]
-  },
-  tarczyca: {
-    niedoczynnosc: {
-      title: "Niedoczynność Tarczycy",
-      tag: "Spowolnienie metabolizmu komórkowego",
-      desc: "Stan, w którym gruczoł tarczowy produkuje zbyt mało hormonów (tyroksyny T4 i trójjodotyroniny T3) w stosunku do zapotrzebowania organizmu. Skutkuje to 'zwolnieniem obrotów' wszystkich układów, w tym spowolnieniem pracy serca (bradykardia) i obniżeniem temperatury ciała.",
-      symptoms: [
-        "Permanentne zmęczenie, senność w ciągu dnia i ogólne osłabienie",
-        "Niewyjaśniony przyrost masy ciała i ogromne trudności z jej redukcją",
-        "Nietolerancja zimna – stałe uczucie chłodu, wiecznie zimne dłonie i stopy",
-        "Skrajnie sucha, szorstka skóra (szczególnie na łokciach i kolanach) oraz łamliwe włosy",
-        "Zaparcia, wzdęcia i spowolniona perystaltyka jelit",
-        "Zaburzenia pamięci, koncentracji, tzw. mgła mózgowa i stany obniżonego nastroju"
-      ]
+    pcos: {
+        title: "PCOS (Polycystic Ovary Syndrome)",
+        tag: "Ovulatory and metabolic disorders",
+        desc: "The most common endocrine disorder among women of reproductive age. The main driver of the condition is insulin resistance (present in 50–70% of patients). High insulin levels stimulate the ovaries to overproduce androgens (male hormones), which blocks ovulation, disrupts the skin, and deregulates the cycle.",
+        symptoms: [
+            "Irregular or infrequent periods (oligomenorrhoea) or their complete absence",
+            "Hirsutism – excessive hair growth on the face, chest, and abdomen",
+            "Hormonal acne and severe skin oiliness",
+            "Androgenetic alopecia (hair thinning on the crown of the head)",
+            "Weight gain, particularly in the abdominal (visceral) area",
+            "Acanthosis nigricans – darkening of the skin in creases (neck, armpits) as a sign of insulin resistance"
+        ]
     },
-    nadczynnosc: {
-      title: "Nadczynność Tarczycy",
-      tag: "Hipermetabolizm i nadaktywność organów",
-      desc: "Stan patologiczny wynikający z nadprodukcji hormonów tarczycy. Wprowadza organizm w stan stałego przyspieszenia – serce bije nienaturalnie szybko (tachykardia, wysokie tętno spoczynkowe w nocy), a metabolizm spala zasoby energetyczne w ekstremalnym tempie.",
-      symptoms: [
-        "Gwałtowny spadek masy ciała pomimo stałego, a nawet zwiększonego apetytu",
-        "Kołatanie serca, tachykardia, uczucie niepokoju w klatce piersiowej",
-        "Nietolerancja wysokich temperatur, uderzenia gorąca i nadmierna potliwość",
-        "Wewnętrzny niepokój, bezsenność, skrajna drażliwość i nerwowość",
-        "Widoczne, drobne drżenie rąk i osłabienie siły mięśniowej",
-        "Przyspieszona praca jelit, częste wypróżnienia lub biegunki"
-      ]
+    endometrioza: {
+        title: "Endometriosis",
+        tag: "Chronic systemic inflammation",
+        desc: "A condition characterized by the presence of endometrial-like tissue (the lining of the uterus) outside its natural location – most commonly on the ovaries, peritoneum, intestines, or bladder. This tissue responds to the hormonal cycle and bleeds internally, causing lesions, adhesions, and severe chronic pain.",
+        symptoms: [
+            "Dysmenorrhea – excruciating, paralyzing pelvic and lower back pain during menstruation",
+            "Dyspareunia – deep pain during or immediately after sexual intercourse",
+            "Dyschezia and dysuria – pain during bowel movements or urination, worsening during the period",
+            "Chronic pelvic pain lasting independently of the cycle phase",
+            "So-called 'Endo-belly' – painful, sudden abdominal bloating resembling pregnancy, combined with bowel issues",
+            "Chronic, debilitating fatigue caused by the immune system's constant battle against inflammation"
+        ]
     },
-    hashimoto: {
-      title: "Choroba Hashimoto",
-      tag: "Przewlekłe autoimmunologiczne zapalenie tarczycy",
-      desc: "Choroba o podłożu układu odpornościowego, w której własne przeciwciała powoli niszczą tkankę tarczycy, prowadząc z czasem do jej włóknienia i trwałej niedoczynności. Stan zapalny ma charakter destrukcyjny i przewlekły.",
-      symptoms: [
-        "Przewlekłe zmęczenie, stany depresyjne i apatia",
-        "Silne wahania nastroju i stany lękowe (związane z okresowymi rzutami hormonów)",
-        "Mgła mózgowa, drastyczny spadek koncentracji i zdolności zapamiętywania",
-        "Wędrujące bóle mięśniowe i bolesność stawów o nieznanej przyczynie",
-        "Zaburzenia owulacji, nieregularne cykle i trudności z donoszeniem ciąży"
-      ]
-    }
+    tarczyca: {
+        niedoczynnosc: {
+            title: "Hypothyroidism",
+            tag: "Slowing of cellular metabolism",
+            desc: "A state in which the thyroid gland produces too little hormone (thyroxine T4 and triiodothyronine T3) relative to the body's needs. This results in 'slowing down' all systems, including a decreased heart rate (bradycardia) and lowered body temperature.",
+            symptoms: [
+                "Permanent fatigue, daytime sleepiness, and general weakness",
+                "Unexplained weight gain and immense difficulty reducing it",
+                "Cold intolerance – constant feeling of chilliness, perpetually cold hands and feet",
+                "Extremely dry, rough skin (especially on elbows and knees) and brittle hair",
+                "Constipation, bloating, and slowed intestinal peristalsis",
+                "Memory and concentration problems, so-called brain fog, and low mood states"
+            ]
+        },
+        nadczynnosc: {
+            title: "Hyperthyroidism",
+            tag: "Hypermetabolism and organ overactivity",
+            desc: "A pathological state resulting from the overproduction of thyroid hormones. It puts the body into a state of constant acceleration – the heart beats unnaturally fast (tachycardia, high resting heart rate at night), and metabolism burns energy resources at an extreme pace.",
+            symptoms: [
+                "Rapid weight loss despite a stable or even increased appetite",
+                "Heart palpitations, tachycardia, a feeling of anxiety in the chest",
+                "Heat intolerance, hot flashes, and excessive sweating",
+                "Internal restlessness, insomnia, extreme irritability, and nervousness",
+                "Visible, fine tremors in the hands and muscle weakness",
+                "Accelerated bowel activity, frequent bowel movements, or diarrhea"
+            ]
+        },
+        hashimoto: {
+            title: "Hashimoto's Disease",
+            tag: "Chronic autoimmune thyroiditis",
+            desc: "An immune system disorder in which the body's own antibodies slowly destroy thyroid tissue, eventually leading to fibrosis and permanent hypothyroidism. The inflammation is destructive and chronic in nature.",
+            symptoms: [
+                "Chronic fatigue, depressive states, and apathy",
+                "Severe mood swings and anxiety (related to periodic hormone surges)",
+                "Brain fog, a drastic drop in concentration, and memory capacity",
+                "Wandering muscle pain and joint soreness of unknown origin",
+                "Ovulatory disorders, irregular cycles, and difficulties maintaining pregnancy"
+            ]
+        }
   }
 };
 
@@ -94,8 +94,8 @@ export function ChorobyPage() {
         >
           {[
             { id: "pcos", label: "PCOS" },
-            { id: "endometrioza", label: "Endometrioza" },
-            { id: "tarczyca", label: "Choroby Tarczycy" },
+            { id: "endometrioza", label: "Endometriosis" },
+            { id: "tarczyca", label: "Thyroid Diseases" },
           ].map((tab) => {
             const isActive = activeTab === tab.id;
             return (
@@ -136,9 +136,9 @@ export function ChorobyPage() {
           {activeTab === "tarczyca" && (
             <div className="flex flex-wrap gap-2 mt-6 pt-6 border-t border-[rgba(255,255,255,0.12)]">
               {[
-                { id: "niedoczynnosc", label: "Niedoczynność" },
-                { id: "nadczynnosc", label: "Nadczynność" },
-                { id: "hashimoto", label: "Hashimoto" },
+                { id: "niedoczynnosc", label: "Hypothyroidism" },
+                { id: "nadczynnosc", label: "Hyperthyroidism" },
+                { id: "hashimoto", label: "Hashimoto's" },
               ].map((sub) => (
                 <button
                   key={sub.id}
@@ -164,7 +164,7 @@ export function ChorobyPage() {
           <div className="flex items-center gap-3 mb-6">
             <ShieldAlert className="w-6 h-6 text-[#e8bfff]" />
             <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.7rem", color: "#ffffff", fontWeight: 600 }}>
-              Sygnały alarmowe organizmu (Objawy)
+                Body's Warning Signs (Symptoms)
             </h2>
           </div>
           <div className="space-y-3">
