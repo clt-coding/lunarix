@@ -8,12 +8,12 @@ interface NavProps {
 }
 
 const tabs: { id: Tab; label: string }[] = [
-  { id: "home", label: "Strona główna" },
-  { id: "o-nas", label: "O nas" },
-  { id: "choroby", label: "Choroby" },
-  { id: "profilaktyka", label: "Profilaktyka" },
-  { id: "badania", label: "Badania" },
-  { id: "aplikacja", label: "Aplikacja" },
+  { id: "home", label: "Main Page" },
+  { id: "o-nas", label: "About us" },
+  { id: "choroby", label: "Conditions" },
+  { id: "profilaktyka", label: "Prevention" },
+  { id: "badania", label: "Tests" },
+  { id: "aplikacja", label: "The App" },
 ];
 
 export function Nav({ activeTab, onTabChange }: NavProps) {
@@ -57,9 +57,9 @@ export function Nav({ activeTab, onTabChange }: NavProps) {
               onClick={() => onTabChange(tab.id)}
               className="px-4 py-2 rounded-full text-sm transition-all duration-200 hover:opacity-100"
               style={{
-                color: activeTab === tab.id ? "#493780" : "rgba(223,217,255,0.72)",
-                background:
-                  activeTab === tab.id ? "#DFD9FF" : "transparent",
+                color:
+                  activeTab === tab.id ? "#493780" : "rgba(223,217,255,0.72)",
+                background: activeTab === tab.id ? "#DFD9FF" : "transparent",
                 fontFamily: "'Nunito', sans-serif",
                 fontWeight: activeTab === tab.id ? 700 : 500,
               }}
@@ -95,9 +95,7 @@ export function Nav({ activeTab, onTabChange }: NavProps) {
               style={{
                 color: activeTab === tab.id ? "#493780" : "#DFD9FF",
                 background:
-                  activeTab === tab.id
-                    ? "#DFD9FF"
-                    : "rgba(255,255,255,0.05)",
+                  activeTab === tab.id ? "#DFD9FF" : "rgba(255,255,255,0.05)",
                 fontFamily: "'Nunito', sans-serif",
                 fontWeight: 600,
               }}

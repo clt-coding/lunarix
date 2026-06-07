@@ -9,11 +9,11 @@ type ProfilaktykaTab =
   | "podsumowanie";
 
 const tabs: { id: ProfilaktykaTab; label: string }[] = [
-  { id: "wstep", label: "Wstęp" },
-  { id: "co-zaburza", label: "Co zaburza hormony?" },
-  { id: "sygnaly", label: "Sygnały alarmowe" },
-  { id: "co-robic", label: "Co możesz zrobić?" },
-  { id: "podsumowanie", label: "Podsumowanie" },
+  { id: "wstep", label: "Introduction" },
+  { id: "co-zaburza", label: "What disrupts hormones?" },
+  { id: "sygnaly", label: "Warning signs" },
+  { id: "co-robic", label: "What can you do?" },
+  { id: "podsumowanie", label: "Summary" },
 ];
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
@@ -138,18 +138,17 @@ function WstepContent() {
     <div className="space-y-10">
       <section>
         <SectionTitle>
-          Dlaczego zaburzeń hormonalnych u kobiet przybywa?
+          Why are hormonal disorders in women on the rise?
         </SectionTitle>
         <BodyText>
-          Zaburzenia hormonalne nie są przypadłością, która dotyka tylko
-          nielicznych. W ciągu ostatnich pięciu dekad płodność kobiet
-          systematycznie spada, a liczba rozpoznań takich schorzeń jak zespół
-          policystycznych jajników (PCOS), endometrioza czy przedwczesna
-          niewydolność jajników wyraźnie rośnie. Naukowcy wskazują, że za tymi
-          trendami stoją w dużej mierze czynniki środowiskowe, substancje
-          chemiczne obecne w naszym codziennym otoczeniu, przewlekły stres oraz
-          styl życia, który coraz bardziej odbiega od naturalnych rytmów
-          organizmu.{" "}
+          Hormonal disorders are not a condition that affects only a few. Over
+          the past five decades, female fertility has been steadily declining,
+          and the number of diagnoses of conditions such as polycystic ovary
+          syndrome (PCOS), endometriosis, and premature ovarian insufficiency
+          has been clearly rising. Scientists indicate that these trends are
+          largely driven by environmental factors, chemicals present in our
+          everyday surroundings, chronic stress, and a lifestyle that
+          increasingly diverges from the body's natural rhythms.{" "}
           <span
             style={{ color: "rgba(223,217,255,0.45)", fontSize: "0.85rem" }}
           >
@@ -157,16 +156,17 @@ function WstepContent() {
           </span>
         </BodyText>
         <BodyText>
-          PCOS jest dziś najczęstszym zaburzeniem endokrynologicznym u kobiet w
-          wieku rozrodczym. Szacuje się, że dotyka od 5 do nawet 21% z nich, w
-          zależności od kryteriów diagnostycznych i badanej populacji.{" "}
+          Today, PCOS the most common endocrine disorder in women of
+          reproductive age. It is estimated to affect between 5 and as many as
+          21% of women, depending on the diagnostic criteria and the population
+          studied.{" "}
           <span
             style={{ color: "rgba(223,217,255,0.45)", fontSize: "0.85rem" }}
           >
             [6]
           </span>{" "}
-          Przedwczesna niewydolność jajników z kolei dotyka jedną na sto kobiet
-          przed 40. rokiem życia.{" "}
+          Premature ovarian insufficiency affects one in a hundred women before
+          the age of 40.{" "}
           <span
             style={{ color: "rgba(223,217,255,0.45)", fontSize: "0.85rem" }}
           >
@@ -174,8 +174,8 @@ function WstepContent() {
           </span>
         </BodyText>
         <BodyText>
-          Liczby te pokazują, że problem jest powszechny i że warto wiedzieć, co
-          możemy zrobić, żeby chronić swoje zdrowie hormonalne.
+          These numbers show that the problem is widespread and that it is worth
+          knowing what we can do to protect our hormonal health.
         </BodyText>
       </section>
     </div>
@@ -187,13 +187,14 @@ function CoZaburzaContent() {
     <div className="space-y-12">
       <section>
         <SectionTitle>
-          Chemikalia w codziennym życiu – disruptory endokrynne
+          Chemicals in everyday life — endocrine disruptors
         </SectionTitle>
         <BodyText>
-          Disruptory endokrynne (EDC) to substancje chemiczne, które naśladują
-          działanie hormonów lub blokują ich receptory, zakłócając pracę całego
-          układu hormonalnego. Są obecne: w opakowaniach do żywności,
-          kosmetykach, środkach czystości, pestycydach, plastiku i elektronice.{" "}
+          Endocrine disruptors (EDCs) are chemical substances that mimic the
+          action of hormones or block their receptors, disrupting the
+          functioning of the entire hormonal system. They are present in: food
+          packaging, cosmetics, cleaning products, pesticides, plastics, and
+          electronics.{" "}
           <span
             style={{ color: "rgba(223,217,255,0.45)", fontSize: "0.85rem" }}
           >
@@ -201,10 +202,11 @@ function CoZaburzaContent() {
           </span>
         </BodyText>
         <BodyText>
-          Metaanaliza obejmująca ponad 83 000 kobiet wykazała, że ekspozycja na
-          BPA niemal dwukrotnie zwiększa ryzyko endometriozy oraz o 61% podnosi
-          ryzyko PCOS. Narażenie na kadm (metal ciężki obecny m.in. w dymie
-          tytoniowym) zwiększa ryzyko endometriozy ponad 2,5-krotnie.{" "}
+          A meta-analysis covering over 83,000 women found that BPA exposure
+          nearly doubles the risk of endometriosis and increases the risk of
+          PCOS by 61%. Exposure to cadmium (a heavy metal found, among other
+          sources, in tobacco smoke) increases the risk of endometriosis more
+          than 2.5 times.{" "}
           <span
             style={{ color: "rgba(223,217,255,0.45)", fontSize: "0.85rem" }}
           >
@@ -214,21 +216,21 @@ function CoZaburzaContent() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
           {[
             {
-              label: "BPA a endometrioza",
+              label: "BPA and endometriosis",
               value: "~2×",
-              desc: "wyższe ryzyko",
+              desc: "higher risk",
               color: "#c17de0",
             },
             {
-              label: "BPA a PCOS",
+              label: "BPA and PCOS",
               value: "+61%",
-              desc: "wyższe ryzyko",
+              desc: "higher risk",
               color: "#f0b88c",
             },
             {
-              label: "Kadm a endometrioza",
+              label: "Cadmium and endometriosis",
               value: "2,5×",
-              desc: "wyższe ryzyko",
+              desc: "higher risk",
               color: "#80d9b4",
             },
           ].map(({ label, value, desc, color }) => (
@@ -276,9 +278,8 @@ function CoZaburzaContent() {
           ))}
         </div>
         <BodyText style={{ marginTop: "1.5rem" }}>
-          Nowym zagrożeniem są też mikroplastiki oraz zanieczyszczenie powietrza
-          w miastach, które coraz częściej łączone są ze zwiększonym ryzykiem
-          PCOS i zaburzeń owulacji.{" "}
+          Microplastics and urban air pollution are also emerging threats,
+          increasingly linked to a higher risk of PCOS and ovulation disorders.{" "}
           <span
             style={{ color: "rgba(223,217,255,0.45)", fontSize: "0.85rem" }}
           >
@@ -288,13 +289,13 @@ function CoZaburzaContent() {
       </section>
 
       <section>
-        <SectionTitle>Przewlekły stres</SectionTitle>
+        <SectionTitle>Chronic stress</SectionTitle>
         <BodyText>
-          Stres stał się cichą pandemią naszych czasów. Presja społeczna, media
-          społecznościowe, nadmiar obowiązków. Wszystko to prowadzi do
-          przewlekłej aktywacji osi podwzgórze–przysadka–nadnercza (HPA). Wysoki
-          poziom kortyzolu zakłóca wydzielanie GnRH, hormonu odpowiedzialnego za
-          regulację całego cyklu menstruacyjnego.{" "}
+          Stress has become a silent pandemic of our times. Social pressure,
+          social media, an excess of responsibilities — all of this leads to
+          chronic activation of the hypothalamic-pituitary-adrenal (HPA) axis.
+          High cortisol levels disrupt GnRH secretion, the hormone responsible
+          for regulating the entire menstrual cycle.{" "}
           <span
             style={{ color: "rgba(223,217,255,0.45)", fontSize: "0.85rem" }}
           >
@@ -302,11 +303,11 @@ function CoZaburzaContent() {
           </span>
         </BodyText>
         <BodyText>
-          Skutki mogą być różne w zależności od nasilenia: od skróconej fazy
-          lutealnej i nieregularnych cykli, przez brak owulacji, aż do
-          całkowitego zaniku miesiączki (czynnościowy brak miesiączki
-          podwzgórzowy). Ten stan zwiększa ryzyko utraty gęstości kości i
-          zaburzeń sercowo-naczyniowych.{" "}
+          The effects can vary depending on severity: from a shortened luteal
+          phase and irregular cycles, through lack of ovulation, to a complete
+          absence of menstruation (functional hypothalamic amenorrhea). This
+          condition increases the risk of bone density loss and cardiovascular
+          disorders.{" "}
           <span
             style={{ color: "rgba(223,217,255,0.45)", fontSize: "0.85rem" }}
           >
@@ -316,29 +317,31 @@ function CoZaburzaContent() {
       </section>
 
       <section>
-        <SectionTitle>Zaburzenia rytmu dobowego i praca nocna</SectionTitle>
+        <SectionTitle>
+          Circadian rhythm disruption and night shift work
+        </SectionTitle>
         <BodyText>
-          Badanie przeprowadzone na ponad 1150 kobietach wykazało istotny
-          związek między pracą na nocnych zmianach a diagnozą PCOS. U kobiet z
-          PCOS obserwowano zaburzenia dobowych rytmów wydzielania kluczowych
-          hormonów, w tym prolaktyny i TSH.{" "}
+          A study conducted on over 1,150 women found a significant association
+          between night shift work and a diagnosis of PCOS. Women with PCOS
+          showed disruptions in the circadian rhythms of key hormones, including
+          prolactin and TSH.{" "}
           <span
             style={{ color: "rgba(223,217,255,0.45)", fontSize: "0.85rem" }}
           >
             [3]
           </span>{" "}
-          Nieregularny sen i ekspozycja na światło niebieskie w nocy mogą
-          realnie wpływać na gospodarkę hormonalną.
+          Irregular sleep and exposure to blue light at night can have a real
+          impact on hormonal balance.
         </BodyText>
       </section>
 
       <section>
-        <SectionTitle>Styl życia</SectionTitle>
+        <SectionTitle>Lifestyle</SectionTitle>
         <BodyText>
-          Otyłość, palenie tytoniu, nadmierne spożycie alkoholu oraz brak
-          aktywności fizycznej przyspieszają starzenie się jajników i zwiększają
-          ryzyko przedwczesnej niewydolności jajników. Zmiany epigenetyczne
-          wywołane przez te czynniki mogą trwale wpływać na rezerwę jajnikową.{" "}
+          Obesity, smoking, excessive alcohol consumption, and physical
+          inactivity accelerate ovarian aging and increase the risk of premature
+          ovarian insufficiency. Epigenetic changes caused by these factors can
+          permanently affect ovarian reserve.{" "}
           <span
             style={{ color: "rgba(223,217,255,0.45)", fontSize: "0.85rem" }}
           >
@@ -351,25 +354,26 @@ function CoZaburzaContent() {
 }
 
 const sygnaly = [
-  "Nieregularne miesiączki (cykle krótsze niż 21 lub dłuższe niż 35 dni)",
-  "Brak miesiączki przez 3 miesiące lub dłużej (przy wcześniej regularnych cyklach)",
-  "Bardzo bolesne miesiączki, ból uniemożliwiający codzienne funkcjonowanie (może sugerować endometriozę)",
-  "Bardzo obfite lub bardzo skąpe krwawienia",
-  "Trądzik hormonalny, nadmierne owłosienie na twarzy lub brzuchu, wypadanie włosów",
-  "Przewlekłe zmęczenie, wahania nastroju, trudności z koncentracją",
-  "Nagłe przybieranie na wadze lub trudności z jej utratą mimo niezmienionego stylu życia",
-  "Uderzenia gorąca lub nocne poty u kobiet przed 40. rokiem życia (mogą wskazywać na przedwczesną niewydolność jajników)",
+  "Irregular periods (cycles shorter than 21 or longer than 35 days)",
+  "Absence of menstruation for 3 months or longer (in previously regular cycles)",
+  "Very painful periods, pain that prevents daily functioning (may suggest endometriosis)",
+  "Very heavy or very light bleeding",
+  "Hormonal acne, excessive facial or abdominal hair growth, hair loss",
+  "Chronic fatigue, mood swings, difficulty concentrating",
+  "Sudden weight gain or difficulty losing weight despite no change in lifestyle",
+  "Hot flashes or night sweats in women under 40 (may indicate premature ovarian insufficiency)",
 ];
 
 function SygnałyContent() {
   return (
     <div className="space-y-8">
       <section>
-        <SectionTitle>Kiedy twój cykl mówi, że coś jest nie tak?</SectionTitle>
+        <SectionTitle>
+          When does your cycle tell you something is wrong?
+        </SectionTitle>
         <BodyText>
-          Zdrowy cykl menstruacyjny to jeden z najważniejszych wskaźników
-          zdrowia hormonalnego kobiety. Warto zwrócić uwagę na następujące
-          sygnały:
+          A healthy menstrual cycle is one of the most important indicators of a
+          woman's hormonal health. Pay attention to the following signals:
         </BodyText>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {sygnaly.map((s) => (
@@ -396,10 +400,9 @@ function SygnałyContent() {
               margin: 0,
             }}
           >
-            <strong style={{ color: "#c17de0" }}>Pamiętaj:</strong> Każdy z tych
-            objawów może mieć różne przyczyny. Jeśli jednak utrzymuje się lub
-            nawraca, jest sygnałem do konsultacji z ginekologiem lub
-            endokrynologiem.
+            <strong style={{ color: "#c17de0" }}>Remember:</strong> Each of
+            these symptoms can have various causes. However, if it persists or
+            recurs, it is a signal to consult a gynecologist or endocrinologist.
           </p>
         </div>
       </section>
@@ -409,43 +412,43 @@ function SygnałyContent() {
 
 const wskazowki = [
   {
-    title: "Ogranicz ekspozycję na plastik i EDC",
+    title: "Limit exposure to plastic and EDCs",
     color: "#80d9b4",
     items: [
-      "Przechowuj żywność w szklanych lub stalowych pojemnikach",
-      "Nie podgrzewaj jedzenia w plastikowych naczyniach",
-      "Wybieraj kosmetyki wolne od parabenów, ftalanów i triclozanu",
-      "Ograniczaj produkty w puszkach (wewnętrzna warstwa może zawierać BPA)",
-      "Filtruj wodę pitną",
+      "Store food in glass or steel containers",
+      "Do not heat food in plastic containers",
+      "Choose cosmetics free from parabens, phthalates, and triclosan",
+      "Limit canned products (the inner lining may contain BPA)",
+      "Filter your drinking water",
     ],
   },
   {
-    title: "Zadbaj o sen i rytm dobowy",
+    title: "Take care of your sleep and circadian rhythm",
     color: "#8cb8f0",
     items: [
-      "Kładź się spać i wstawaj o stałych porach",
-      "Ogranicz światło niebieskie minimum godzinę przed snem",
-      "Jeśli pracujesz zmianowo, monitoruj zdrowie hormonalne regularnie",
+      "Go to bed and wake up at consistent times",
+      "Limit blue light at least one hour before sleep",
+      "If you work shifts, monitor your hormonal health regularly",
     ],
   },
   {
-    title: "Redukuj stres",
+    title: "Reduce stress",
     color: "#f0b88c",
     items: [
-      "Regularna aktywność fizyczna o umiarkowanej intensywności obniża kortyzol",
-      "Techniki redukcji stresu: mindfulness, oddychanie przeponowe, joga",
-      "Dbaj o granice między pracą a odpoczynkiem",
-      "W razie potrzeby wsparcie psychologiczne",
+      "Regular physical activity at moderate intensity lowers cortisol",
+      "Stress reduction techniques: mindfulness, diaphragmatic breathing, yoga",
+      "Maintain boundaries between work and rest",
+      "Seek psychological support if needed",
     ],
   },
   {
-    title: "Styl życia",
+    title: "Lifestyle",
     color: "#c17de0",
     items: [
-      "Nie pal tytoniu, palenie przyspiesza starzenie się jajników",
-      "Ogranicz alkohol",
-      "Dbaj o prawidłową masę ciała, zarówno nadwaga, jak i niedowaga zaburzają hormony",
-      "Wybieraj żywność przeciwzapalną: warzywa, owoce, tłuste ryby, oliwa, orzechy",
+      "Do not smoke, smoking accelerates ovarian aging",
+      "Limit alcohol",
+      "Maintain a healthy body weight, both overweight and underweight disrupt hormones",
+      "Choose anti-inflammatory foods: vegetables, fruits, fatty fish, olive oil, nuts",
     ],
   },
 ];
@@ -456,9 +459,8 @@ function CoRobicContent() {
       <section>
         <SectionTitle>Profilaktyka w praktyce</SectionTitle>
         <BodyText>
-          Choć nie mamy wpływu na wszystkie czynniki środowiskowe, wiele z nich
-          możemy ograniczyć. Oto konkretne działania, które mają poparcie w
-          badaniach naukowych:
+          While we cannot control all environmental factors, many of them can be
+          limited. Here are specific actions supported by scientific research:
         </BodyText>
         <div className="space-y-6">
           {wskazowki.map(({ title, color, items }) => (
@@ -521,21 +523,21 @@ function PodsumowanieContent() {
     <div className="space-y-10">
       <section>
         <SectionTitle>
-          Twoje zdrowie hormonalne zaczyna się od codziennych wyborów
+          Your hormonal health begins with everyday choices
         </SectionTitle>
         <BodyText>
-          Zdrowie hormonalne kobiety kształtuje się przez całe życie. Jest
-          wrażliwe na wiele czynników, które na co dzień mogą wydawać się
-          niewinne. Substancje chemiczne w plastiku i kosmetykach, przewlekły
-          stres, nieregularny sen czy niezdrowy styl życia to realne zagrożenia,
-          które nauka coraz lepiej dokumentuje.
+          A woman's hormonal health is shaped throughout her lifetime. It is
+          sensitive to many factors that may seem harmless on a daily basis.
+          Chemicals in plastics and cosmetics, chronic stress, irregular sleep,
+          and an unhealthy lifestyle are real threats that science is
+          increasingly documenting.
         </BodyText>
         <BodyText>
-          Dobra wiadomość jest taka, że wiele z tych czynników możemy
-          kontrolować. Świadome wybory co jemy, czym się otaczamy, jak śpimy i
-          jak radzimy sobie ze stresem – mają znaczenie dla naszego układu
-          hormonalnego. A gdy pojawią się niepokojące objawy, warto działać
-          szybko i nie bagatelizować sygnałów, które wysyła ciało.
+          The good news is that many of these factors are within our control.
+          Conscious choices about what we eat, what we surround ourselves with,
+          how we sleep, and how we manage stress all matter for our hormonal
+          system. And when concerning symptoms appear, it is worth acting
+          quickly and not dismissing the signals your body sends.
         </BodyText>
       </section>
 
@@ -548,7 +550,7 @@ function PodsumowanieContent() {
             marginBottom: "1rem",
           }}
         >
-          Źródła naukowe
+          Scientific references
         </h3>
         <div className="space-y-3">
           {[
@@ -670,7 +672,7 @@ export function ProfilaktykaPage() {
               border: "1px solid rgba(128,217,180,0.3)",
             }}
           >
-            🌿 Profilaktyka zaburzeń hormonalnych
+            Prevention of Hormonal Disorders
           </div>
           <h1
             style={{
@@ -682,7 +684,7 @@ export function ProfilaktykaPage() {
               lineHeight: 1.15,
             }}
           >
-            Profilaktyka
+            Prevention
           </h1>
           <p
             style={{
@@ -693,9 +695,9 @@ export function ProfilaktykaPage() {
               maxWidth: "600px",
             }}
           >
-            Co zaburza równowagę hormonalną, jakie sygnały wysyła ciało i co
-            możesz zrobić, żeby chronić swoje zdrowie hormonalne – oparte na
-            aktualnych badaniach naukowych.
+            What disrupts hormonal balance, what signals your body sends, and
+            what you can do to protect your hormonal health — based on current
+            scientific research.
           </p>
         </div>
       </section>
@@ -754,10 +756,12 @@ export function ProfilaktykaPage() {
               lineHeight: 1.7,
             }}
           >
-            <strong style={{ color: "#DFD9FF" }}>Informacja edukacyjna.</strong>{" "}
-            Treści zawarte na tej stronie mają wyłącznie charakter informacyjny
-            i nie zastępują porady medycznej. W przypadku objawów zawsze
-            skonsultuj się z lekarzem endokrynologiem lub ginekologiem.
+            <strong style={{ color: "#DFD9FF" }}>
+              Educational information.
+            </strong>{" "}
+            The content on this page is for informational purposes only and does
+            not replace medical advice. If you experience symptoms, always
+            consult an endocrinologist or gynecologist.
           </p>
         </div>
       </div>
